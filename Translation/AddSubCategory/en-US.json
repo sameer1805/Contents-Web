@@ -1,0 +1,13 @@
+﻿{
+  "ControlText": {
+    "Cat_CategoryId": "Category Id",
+    "Cat_Name": "Name",
+    "AnnualDepreciation": "Annual Depreciation",
+    "SubcategoryDetails": "Subcategory Details",
+    "UsefulYears": "Useful Years"
+  },
+  "btn": {
+    "Save": "Save",
+    "Cancel": "Cancel"
+  }
+}

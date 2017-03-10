@@ -1,0 +1,22 @@
+﻿{
+  "HeaderText": {
+    "Inventory": "Inventory"
+  },
+
+  "ControlText": {
+     "LoadFromFile":"Load Form File",
+    "AddItem": "Add Item"
+  },
+  "Table": {
+    "ItemId": "Item Id",
+    "ItemName": "Item Name",
+    "Model": "Model",
+    "ItemType": "Item Type",
+    "Description": "Description",
+    "Supplier": "Supplier",
+    "AddedOn": "Added On",
+    "LastUpdated": "Last Updated"
+  },
+  "SearchText": "Search item #, name, description etc",
+  "NoRecordText": "No records available"
+}

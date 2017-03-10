@@ -1,0 +1,28 @@
+﻿{
+  "Labeled": {
+    "btnNewCategory": "Add New Category",
+    "btnMoreSubCategory": "Add More Subcategory",
+    "btnBack": "Back",
+    "btnSave": "Save",
+    "btnCancel": "Cancel",
+    "lblSearch": "Search..",
+    "View": "View",
+    "PageSize": "Show"
+  },
+  "TableCat": {
+    "CatagoryId": "Category Id",
+    "CatagoryName": "Name",
+    "CoverageLimit": "Coverage Limit",
+    "Description": "Description",
+    "SubCategory": "Sub Category",
+    "SubCategoryName": "Name",
+    "AnnualDepreciation": "Annual Depreciation",
+    "UsefulYears": "Useful Years",
+    "SrNo": "Id"
+  },
+  "HeaderText": {
+    "NewCat": "Category",
+    "CatDesc": "Category Details",
+    "SubCat": "Subcategory"
+  }
+}

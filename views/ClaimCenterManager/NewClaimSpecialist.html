@@ -1,0 +1,224 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-green-sharp">
+                        <i class="icon-settings font-green-sharp"></i>
+                        <span class="caption-subject bold uppercase">{{"TabHeaderText.NewSpecialists" | translate}}</span>
+                    </div>
+                    <div class="tools">
+                        <button id="sample_editable_1_new " class="btn sbold green btnMargin" ng-click="SaveClaimSpecialist()">
+                            <i class="fa fa-save"></i>
+                            {{"ControlText.Save"|translate}}
+                        </button>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="portlet light bordered">
+                                <div class="portlet-body">
+                                    <div class="row">
+                                        <!--top buttons-->
+                                        <div class="portlet">
+                                            <div class="portlet-title">
+                                                <div class="caption font-green-sharp">
+                                                    <span class="caption-subject bold uppercase">{{"TabHeaderText.ContactInformation" | translate}}</span>
+                                                </div>
+                                                <div class="tools">
+                                                    <a href="" class="collapse"> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--<div class="col-md-12 form-group  clearfix">
+                                            <label class="col-md-2 control-label">{{"ControlText.Employee#"|translate}} </label>
+                                            <div class="col-md-3">
+                                                <input type="text" ng-model="ContactDetails.firstName" class="form-control" placeholder="{{'ControlText.FirstName'|translate}}">
+                                            </div>
+                                        </div>-->
+
+                                        <div class="col-md-12 form-group  clearfix">
+                                            <label class="col-md-2 control-label">{{"ControlText.FirstName"|translate}} </label>
+                                            <div class="col-md-3">
+                                                <input type="text" ng-model="ContactDetails.firstName" class="form-control" placeholder="{{'ControlText.FirstName'|translate}}">
+                                            </div>
+                                            <label class="col-md-2 col-md-offset-2 control-label">{{"ControlText.LastName"|translate}} </label>
+                                            <div class="col-md-3">
+                                                <input type="text" ng-model="ContactDetails.lastName" class="form-control" placeholder="{{'ControlText.LastName'|translate}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 form-group  clearfix">
+                                            <label class="col-md-2 control-label">{{"ControlText.EmailId"|translate}} </label>
+                                            <div class="col-md-3">
+                                                <input type="text" ng-model="ContactDetails.email" class="form-control" placeholder="{{'ControlText.EmailId'|translate}}">
+                                            </div>
+                                            <label class="col-md-5 control-label">{{"TabHeaderText.UserNameNote"|translate}} </label>
+                                        </div>
+
+
+                                        <div class="col-md-12 form-group  clearfix">
+                                            <label class="col-md-2 control-label">{{"ControlText.DayTimePhone"|translate}}</label>
+                                            <div class="col-md-1"><input type="text" class="form-control" ng-model="DayPhoneFirst" ng-maxlength="4"></div>
+                                            <div class="col-md-1"><input type="text" class="form-control" ng-model="DayPhoneSecond" ng-maxlength="4"></div>
+                                            <div class="col-md-1"><input type="text" class="form-control" ng-model="DayPhoneThird" ng-maxlength="4"></div>
+
+                                            <label class="col-md-2 col-md-offset-2 control-label">{{"ControlText.MobilePhone"|translate}} </label>
+                                            <div class="col-md-1 "><input type="text" class="form-control " ng-maxlength="4" ng-model="CellPhoneFirst"></div>
+                                            <div class="col-md-1 "><input type="text" class="form-control " ng-maxlength="4" ng-model="CellPhoneSecond"></div>
+                                            <div class="col-md-1  "><input type="text" class="form-control " ng-maxlength="4" ng-model="CellPhoneThird"></div>
+
+                                        </div>
+
+                                        <div class="col-md-12 form-group  clearfix">
+                                            <label class="col-md-2 control-label">{{"ControlText.ReportingManager"|translate}} </label>
+                                            <div class="col-md-3">
+                                                <select class="input-sm select2me" ng-model="ProfessionalDetails.reportingManager.id" data-placeholder="Select Reporting Manager">
+                                                    <option value="{{item.id}}" ng-selected="item.id===ProfessionalDetails.reportingManager.id" ng-repeat="item in Reportingmanagers">{{item.name}}  </option>
+                                                </select>
+                                            </div>
+                                            <label class="col-md-2 col-md-offset-2 control-label">{{"ControlText.Branch/Office"|translate}} </label>
+                                            <div class="col-md-3">
+                                                <select class="input-sm select2me" ng-model="ProfessionalDetails.branch.id" data-placeholder="Select Branch/Office">
+                                                    <option value="{{item.id}}" ng-selected="item.id===ProfessionalDetails.branch.id" ng-repeat="item in Branch">{{item.name}} </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 form-group  clearfix">
+                                            <label class="col-md-2 control-label">{{"ControlText.Role"|translate}} </label>
+                                            <div class="col-md-3">
+                                                <select class="input-sm select2me" ng-model="ProfessionalDetails.roles.roleId" data-placeholder='Select Role'>
+                                                    <option value="{{item.roleId}}" ng-selected="item.roleId===ProfessionalDetails.roles.roleId" ng-repeat="item in Roles">{{item.roleName}}</option>
+                                                </select>
+                                            </div>
+                                            <label class="col-md-2 col-md-offset-2 control-label">{{"ControlText.Designation"|translate}} </label>
+                                            <div class="col-md-3">
+                                                <select class="input-sm select2me" ng-model="ProfessionalDetails.designation.id" data-placeholder="Select Designation">
+                                                    <option value="{{item.id}}" ng-selected="item.id===ProfessionalDetails.designation.id" ng-repeat="item in Designations">{{item.name}} </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 form-group  clearfix">
+                                            <label class="col-md-2 control-label">{{"ControlText.Address"|translate}} </label>
+                                            <div class="col-md-5">
+                                                <textarea class="form-control" ng-model="ContactDetails.address.streetAddressOne" placeholder="{{'ControlText.AddressLine2'|translate}}"></textarea>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <textarea class="form-control" ng-model="ContactDetails.address.streetAddressTwo" placeholder="{{'ControlText.AddressLine2'|translate}}"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 form-group  clearfix">
+                                            <div class="col-md-5 col-md-offset-2">
+                                                <input type="text" class="form-control" ng-model="ContactDetails.address.city" placeholder="{{'ControlText.Town'|translate}}">
+                                            </div>
+                                            <div class="col-md-3 ">
+                                                <select class="input-sm select2me" ng-model="ContactDetails.address.state.id" data-placeholder="Select State">
+                                                    <option value="{{item.id}}" ng-repeat="item in State">{{item.state}}</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <input type="text" ng-model="ContactDetails.address.zipcode" class="form-control" placeholder="{{'ControlText.Zip'|translate}}">
+                                            </div>
+                                        </div>
+
+                                        <!-- End row -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Category Specilists -->
+        <div class="col-md-12">
+            <div class="portlet light ">
+                <div class="portlet-title">
+                    <div class="caption font-green-sharp">
+                        <i class="icon-settings font-green-sharp"></i>
+                        <span class="caption-subject bold uppercase">{{"TabHeaderText.CategorySpecialities" | translate}}</span>
+                    </div>
+
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="portlet light bordered">
+                                <div class="portlet-body">
+                                    <div class="row">
+                                        <!--top buttons-->
+                                        <div class="portlet">
+                                            <div class="portlet-title">
+                                                <!--Keep this empty just took for horizontal line-->
+                                                <div class="form-group col-md-12">
+                                                    <label class="control-label  text-primary ">{{"TabHeaderText.CategorySpecialities" | translate}} : &nbsp; {{SpecialistName}}</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Start Table Data-->
+                                        <div class="col-md-12 padding-top-10px table-responsive">
+                                            <div class="clearfix"> </div>
+                                            <div class="col-md-4 col-md-offset-2">
+                                                <div class="input-icon left">
+                                                    <i class="icon-magnifier"></i>
+                                                    <input type="text" ng-model="searchCategory" class="form-control form-control-solid input-circle input-block-level btnMargin margin-bottom-10" placeholder="{{'CategorySpecialistsTable.search' | translate}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-offset-2 col-md-8  table-responsive">
+                                                <table class="table table-bordered  table-striped">
+                                                    <tr>
+                                                        <td class="width45">
+                                                            <div class="col-md-12 table-responsive" style="height:200px;">
+                                                                <table class="table table-bordered table-hover table-striped">
+                                                                    <tr ng-repeat="category in CategoryList|filter:searchCategory">
+                                                                        <td>
+                                                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" ng-click="">
+                                                                                <input type="checkbox" class="checkboxes" ng-click="AddCategoryToExpert(category)" ng-checked="GetIsChecked(AddSpecialtyList,category)" />
+                                                                                <span></span>
+                                                                            </label>
+                                                                        </td>
+                                                                        <td>{{category.categoryName}}</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="5" class="text-center">
+                                                            <a href="#" style="text-decoration:none;" ng-click="AddToExpertCategory()"><h1 class="text-muted">&gt;</h1></a>
+                                                            <a href="#" style="text-decoration:none;" ng-click="RemoveFromExpertCategory()">  <h1 class="text-muted">&lt;</h1></a>
+                                                        </td>
+                                                        <td class="width45">
+                                                            <div class="col-md-12 table-responsive" style="height:200px;">
+                                                                <table class="table table-bordered table-hover table-striped">
+                                                                    <tr ng-repeat="specialty in  SpecialtyOfSpecialist">
+                                                                        <td>
+                                                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                                                <input type="checkbox" class="checkboxes" ng-click="RemoveExpertCategory(specialty)" ng-checked="GetIsChecked(RemoveSpecialtyList,specialty)" />
+                                                                                <span></span>
+                                                                            </label>
+                                                                        </td>
+                                                                        <td>{{specialty.speciality}}</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!--End Table data-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

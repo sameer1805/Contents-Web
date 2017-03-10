@@ -1,0 +1,268 @@
+﻿ <!--Lost Or Damaged Contents-->
+<div class="col-md-12 clearfix">
+    <button class="btn sbold btnMargin blue" ng-click="GoBack($event)">
+        <i class="fa fa-arrow-left"></i> {{"ControlText.Back"|translate}}
+    </button>
+</div>
+<div class="col-md-12 margin-top-15 clearfix">
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption font-green-sharp">
+                <!--<span class="caption-subject bold uppercase">{{"HeaderTitle.LostOrDamagedContents"|translate}}</span>-->
+                <span class="caption-subject bold">{{"HeadingText.Claim"|translate}} {{ClaimNumber}} Assigned 85 of 235 items claimed</span>
+
+            </div>
+
+            <div class="tools">
+                <a href="" class="collapse"> </a>
+                <a href="" class="fullscreen"> </a>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="row">
+                <div class="col-md-12 clearfix">
+                    <button id="btnAddItem" class="btn sbold red  btnMargin" ng-click="AddnewItemPopup($event)">
+                        <i class="fa fa-plus"></i>
+                        {{"ControlText.AddItem"|translate}}
+                    </button>
+                    <button id="btnDelete" class="btn sbold green  btnMargin" ng-click="DeletItem($event)">
+                        <i class="fa fa-remove"></i>
+                        {{"ControlText.Delete"|translate}}
+                    </button>
+
+                </div>
+
+                <div class="col-md-12 margin-top-20 clearfix">
+                    <label class="control-label col-md-1 text-primary">{{"ControlText.View"|translate}}</label>
+                    <div class="form-group col-md-3">
+                        <select class="input-small select2me" ng-model="Categories" data-placeholder="CategoryList..." ng-change="GetItemsByCategory($event)">
+                            <option value="ALL" selected>All</option>
+                            <option ng-repeat="category in DdlSourceCategoryList" value="{{category.categoryId}}">{{category.categoryName}}</option>
+                        </select>
+                    </div>
+                    <label class="control-label col-md-1 text-primary">{{"ControlText.Show"|translate}}</label>
+                    <div class="form-group col-md-3">
+                        <select class="input-small select2me" ng-model="PageSize" data-placeholder="CategoryList...">
+                            <option value="10">10-Items</option>
+                            <option value="15">15-Items</option>
+                            <option value="20">20-Items</option>
+                        </select>
+                    </div>
+                    <div class="caption font-green-sharp col-md-4">
+                        <div class="input-icon left">
+                            <i class="icon-magnifier"></i>
+                            <input type="text" class="form-control form-control-solid input-circle input-block-level" ng-model="searchDamagedContent" placeholder={{"SearchText"|translate}}>
+                        </div>
+                    </div>
+
+                </div>
+                <!--table data-->
+                <div class="col-md-12 margin-bottom-20"></div>
+                <div class="table-responsive col-md-12">
+                    <table class="table table-striped table-bordered table-hover table-checkable order-column">
+                        <thead>
+                            <tr>
+                                <th class="table-checkbox">
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        <input type="checkbox" class="group-checkable" ng-model="DeleteAll" ng-click="DeleteAllItems()" />
+                                        <span></span>
+                                    </label>
+                                </th>
+                                <th>{{"Table.ItemName"|translate}}</th>
+                                <th>{{"Table.Brand"|translate}}</th>
+                                <th>{{"Table.Model"|translate}}</th>
+                                <th>{{"Table.Price"|translate}}</th>
+                                <th>{{"Table.Category"|translate}}</th>
+                                <th>{{"Table.SubCategory"|translate}}</th>
+                                <th>{{"Table.Age"|translate}}</th>
+                                <th>{{"Table.Status"|translate}}</th>
+                                <th>{{"Table.ReplacedValue"|translate}}</th>
+                                <th>{{"Table.RCV"|translate}}</th>
+                                <th>{{"Table.ACV"|translate}}</th>
+                                <th>{{"Table.PayoutCheck"|translate}} </th>
+                                <th>{{"Table.Holdover"|translate}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr dir-paginate="Content in LostOrDamagedContent |filter:searchDamagedContent|itemsPerPage:3">
+                                <td>
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        <input type="checkbox" class="checkboxes" ng-checked="exists(Content.itemId,DeleteListLostDamageItem)" ng-click="AddToDeleteList(Content.itemId)" />
+                                        <span></span>
+                                    </label>
+                                </td>
+                                <td ng-click="openLineItemdetails(Content)"><a herf="#">{{Content.itemName}}</a></td>
+                                <td ng-click="openLineItemdetails(Content)"><a herf="#">{{Content.brand}}</a></td>
+                                <td ng-click="openLineItemdetails(Content)"><a herf="#">{{Content.model}}</a></td>
+                                <td ng-click="openLineItemdetails(Content)"><a herf="#">{{Content.price}}</a></td>
+                                <td ng-click="openLineItemdetails(Content)"><a herf="#">{{Content.categoryName}}</a></td>
+                                <td ng-click="openLineItemdetails(Content)"><a herf="#">{{Content.subCategoryName}}</a></td>
+                                <td ng-click="openLineItemdetails($event)"><a herf="#"><!--{{Content.Age}}--></a></td>
+                                <td ng-click="openLineItemdetails($event)"><a herf="#"><!--{{Content.Status}}--></a></td>
+                                <td ng-click="openLineItemdetails($event)"><a herf="#"><!--{{Content.ReplacedValue}}--></a></td>
+                                <td ng-click="openLineItemdetails($event)"><a herf="#"><!--{{Content.RCV}}--></a></td>
+                                <td ng-click="openLineItemdetails($event)"><a herf="#"><!--{{Content.ACV}}--></a></td>
+                                <td ng-click="openLineItemdetails($event)"><a herf="#"><!--{{Content.PayoutCheck}}--></a></td>
+                                <td ng-click="openLineItemdetails($event)"><a herf="#"><!--{{Content.Holdover}}--></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div ng-show="!LostOrDamagedContent.length" class="col-md-12 text-center text-danger">{{"NoRecordText"|translate}}</div>
+                    <dir-pagination-controls max-size="3"
+                                             direction-links="true"
+                                             boundary-links="true" class="pull-right">
+                    </dir-pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 clearfix">
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption font-green-sharp">
+                <!--<span class="caption-subject bold uppercase">{{"HeaderTitle.LostOrDamagedContents"|translate}}</span>-->
+                <span class="caption-subject bold">{{"HeadingText.LineItemDetails"|translate}}</span>
+
+            </div>
+
+            <div class="tools">
+                <a href="" class="collapse"> </a>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="row">
+                        <div class="col-md-12">
+                                <div class="portlet-body">
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <label class="col-md-2 control-label">{{"ControlText.item#"|translate}} </label>
+                                            <div class="col-md-4">
+                                                <input class="form-control " type="text" placeholder="{{'ControlText.item#'|translate}}" />
+                                            </div>
+                                            <label class="col-md-2 control-label">{{"ControlText.ItemCategory"|translate}} </label>
+                                            <div class="col-md-4">
+                                                <select class="form-control  btnMargin" data-placeholder="{{'ControlText.ItemCategory'|translate}}">
+                                                    <option value="">Select</option>
+                                                    <option value="AL">Test</option>
+                                                    <option value="WY">Test</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="portlet light bordered">
+                                <div class="portlet-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="control-label col-md-12"><b>{{'ControlText.Services' | translate}}</b></label>
+                                            <div class="col-md-3 form-group" ng-repeat="item  in ServiceList">
+                                                <label class="mt-checkbox mt-checkbox-outline mt-checkbox-single ">
+                                                    <input type="checkbox" name="selectAdjuster" />
+                                                    <span></span>
+                                                </label>Service1 ServiceList
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="control-label col-md-3"><b>{{'ControlText.ContactInsure' | translate}}</b></label>
+                                            <div class="col-md-3" style="display:flex">
+
+                                                <label class="mt-radio mt-radio-outline mt-radio-single ">
+                                                    <input type="radio" name="ContactInsured" />
+                                                    <span></span>
+                                                </label>{{'ControlText.RdoYes' | translate}}
+                                                <label class="mt-radio mt-radio-outline mt-radio-single " style="margin-left: 12%;">
+                                                    <input type="radio" name="ContactInsured" />
+                                                    <span></span>
+                                                </label>{{'ControlText.RdoNo' | translate}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <form class="form-inline ">
+                                <label class="control-label col-md-2"><b>Specialists</b></label>
+                                <div class="form-group pull-right col-md-4">
+                                    <label>{{"ControlText.Search_title"|translate}}</label>
+                                    <input type="text" ng-model="search" class="form-control" placeholder={{"SearchText"|translate}}>
+                                </div>
+                            </form>
+                            <div class="clearfix margin-bottom-10"></div>
+                            <table class="table table-striped table-inverse table-bordered table-hover table-checkable order-column">
+                                <thead>
+                                    <tr>
+                                        <th class="table-checkbox">
+                                            <label class="mt-radio mt-radio-outline mt-radio-single">
+                                                <input type="radio" class="radio" name="selectAll" />
+                                                <span></span>
+                                            </label>
+                                        </th>
+                                        <th ng-click="sort('Match')">
+                                            {{"Table.Match"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortKey=='Match'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                        </th>
+                                        <th ng-click="sort('casesInHand')">
+                                            {{"Table.ItemsInHand"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortKey=='casesInHand'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                        </th>
+                                        <th ng-click="sort('firstName')">
+                                            {{"Table.Name"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortKey=='firstName'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                        </th>
+                                        <th ng-click="sort('Speciality')">
+                                            {{"Table.Speciality"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortKey=='Speciality'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                        </th>
+                                        <th ng-click="sort('role')">
+                                            {{"Table.InternalExternal"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortkey=='role'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+                                    <tr dir-paginate="Adjustor in AdjusterList|orderBy:sortKey:reverse|filter:search|itemsPerPage:PageSize">
+                                        <td>
+                                            <label class="mt-radio mt-radio-outline mt-radio-single">
+                                                <input type="radio" class="radio" name="specialists" value="1" />
+                                                <span></span>
+                                            </label>
+                                        </td>
+                                        <td></td>
+                                        <td>{{Adjustor.casesInHand}}</td>
+                                        <td>{{Adjustor.firstName+" "+Adjustor.lastName}}</td>
+                                        <td>
+                                            <ul ng-repeat="speciality in Adjustor.specialities" style="list-style-type:none">
+                                                <li>{{speciality.speciality}}</li>
+                                            </ul>
+                                        </td>
+                                        <!--<td></td>-->
+
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                            <div ng-show="!AdjusterList.length" class="col-md-12 text-center text-danger">{{"NoRecordText"|translate}}</div>
+                            <dir-pagination-controls max-size="3"
+                                                     direction-links="true"
+                                                     boundary-links="true" class="pull-right">
+                            </dir-pagination-controls>
+
+                            <label class="col-md-3">{{"ControlText.MinimumCostOfservice"|translate}}</label><label class="col-md-3">$150</label>
+                        </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn dark btn-outline" data-dismiss="modal" ng-click="cancel($event)">{{"ControlText.Cancel_title"|translate}}</button>
+                        <button type="button" class="btn green" ng-click="AssignClaim()"> {{"ControlText.AssignAdjuster_title"|translate}} </button>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+<!--End Lost Or Damaged Contents-->

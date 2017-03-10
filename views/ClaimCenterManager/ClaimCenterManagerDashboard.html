@@ -1,0 +1,259 @@
+﻿
+<div class="row">
+    <!--Start FNOL Submission-->
+    <div class="col-md-12">
+        <div class="col-md-8 col-md-offset-2 margin-bottom-10">
+            <div class="input-icon left">
+                <i class="icon-magnifier"></i>
+                <input type="text" ng-model="Globalsearch" class="form-control form-control-solid input-circle input-block-level btnMargin" 
+                     ng-keydown="$event.which === 13 && GetSearchResult()"  placeholder="{{'Label.search'| translate}}" ng-blur="GetSearchResult()">
+            </div>
+        </div>
+        
+        <div class="col-md-12 clearfix">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-green-sharp">
+                        <i class="icon-settings font-green-sharp"></i>
+                        <span class="caption-subject bold uppercase">{{"MainHeader.FNOLSubmissions"|translate}} </span>
+                    </div>
+                    <div>
+                        <div class="pull-right">
+                            <button id="sample_editable_1_new" class="btn sbold green btnMargin" ng-click="GotoFnolRequest($event)">
+                                <i class="fa fa-plus red"></i>
+                                {{"ControlText.NewFNOL"|translate}}
+                            </button>
+                        </div>
+                                        </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+
+                        <!--all claims-->
+                        <div class="col-md-12 ">
+                            <div class="portlet light bordered">
+                                <div class="portlet-title margin-bottom-25">
+                                    
+                                            <button id="sample_editable_1_new pull-left" class="btn sbold green btnMargin" ng-show="!IsSearch">
+                                                <i class="fa fa-folder"></i>
+                                                {{"ControlText.LoadFromFile"|translate}}
+                                            </button>
+                                            <button id="sample_editable_1_new" class="btn sbold green btnMargin" ng-show="!IsSearch">
+                                                <i class="icon-logout"></i>
+                                                {{"ControlText.Export"|translate}} 
+                                            </button>
+                                    <button  class="btn sbold green btnMargin" ng-show="IsSearch" ng-click="HideSearchResult()">
+                                        <i class="fa fa-arrow-left"></i>
+                                        {{"ControlText.back"|translate}}
+                                    </button>
+                                    <!--<div class="col-md-5 pull-right">
+                                        <div class="input-icon left">
+                                            <i class="icon-magnifier"></i>
+                                            <input type="text" ng-model="search" class="form-control form-control-solid input-circle input-block-level btnMargin" placeholder="{{'Label.search'| translate}}">
+                                        </div>
+                                    </div>-->
+                               </div>
+                                <div class="portlet-body">
+                                    <!-- Search result -->
+                                    <div class="row" ng-show="IsSearch">  
+                                         <div class="col-md-12 margin-bottom-20">
+                                        <label class="text-logo "><b>{{"Label.MatchingRecord"| translate}} <span class="text-success">{{GlobalsearchText}}</span></b></label>
+                                        </div>                                   
+                                        <div class="col-md-12 margin-bottom-25">
+                                            <label class="col-md-1 text-primary">{{"Label.View"|translate}}</label>
+                                            <div class="col-md-3">
+                                                <select class="input-sm select2me" ng-change="FilterSearchList()" ng-model="ClaimFilterForSearch">
+                                                    <option value="ALL">All</option>
+                                                    <option value="Home">Home</option>
+                                                    <option value="AUTO">Auto</option>
+                                                </select>
+                                            </div>
+                                            <label class="col-md-1 text-primary">{{"Label.PageSize"| translate}}</label>
+                                            <div class="col-md-3">
+                                                <select class="input-sm select2me pull-right" ng-model="Searchpagesize">
+                                                    <option value="10">10 Claims</option>
+                                                    <option value="15">15 Claims</option>
+                                                    <option value="20">20 Claims</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-4 ">
+                                                <div class="input-icon left">
+                                                    <i class="icon-magnifier"></i>
+                                                    <input type="text" ng-model="searchRecordSearch" class="form-control form-control-solid input-circle input-block-level btnMargin" placeholder="{{'Label.search'| translate}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="col-md-12 padding-top-10px table-responsive" id="sample_5_wrapper">
+                                            <table class="table table-striped table-bordered table-hover table-checkable order-column" id="dash">
+                                                <thead>
+                                                    <tr>
+                                                        <td ng-click="sortSearchGrid('claimType')">
+                                                            {{"Table.Type_Title" | translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="SerchGridsortKey=='claimType'" ng-class="{'glyphicon-chevron-up pull-right':SearchGridreverse,'glyphicon-chevron-down pull-right':!SearchGridreverse}"></span>
+                                                        </td>
+                                                        <td ng-click="sortSearchGrid('Reference')">
+                                                            {{"Table.Reference"|translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="SerchGridsortKey=='Reference'" ng-class="{'glyphicon-chevron-up pull-right':SearchGridreverse,'glyphicon-chevron-down pull-right':!SearchGridreverse}"></span>
+
+                                                        </td>
+
+                                                        <td ng-click="sortSearchGrid('insuredDetails.firstName')">
+                                                            {{"Table.InsuredName"|translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="SerchGridsortKey=='InsuredsName'" ng-class="{'glyphicon-chevron-up pull-right':SearchGridreverse,'glyphicon-chevron-down pull-right':!SearchGridreverse}"></span>
+                                                        </td>
+                                                        <td ng-click="sortSearchGrid('insuredDetails.personalPhoneNumber')">
+                                                            {{"Table.InsuredsPhone"|translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="SerchGridsortKey=='InsuredsPhone'" ng-class="{'glyphicon-chevron-up pull-right':SearchGridreverse,'glyphicon-chevron-down pull-right':!SearchGridreverse}"></span>
+                                                        </td>
+                                                        <td ng-click="sortSearchGrid('ReportDate')" class="">
+                                                            {{"Table.ReportDate"|translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="SerchGridsortKey=='ReportDate'" ng-class="{'glyphicon-chevron-up pull-right':SearchGridreverse,'glyphicon-chevron-down pull-right':!SearchGridreverse}"></span>
+                                                        </td>
+                                                        <td ng-click="sortSearchGrid('Status')">
+                                                            {{"Table.Status"|translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="SerchGridsortKey=='Status'" ng-class="{'glyphicon-chevron-up pull-right':SearchGridreverse,'glyphicon-chevron-down pull-right':!SearchGridreverse}"></span>
+                                                        </td>
+                                                        <td>
+                                                            {{"Table.Action"|translate}}
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr  dir-paginate="item in SearchFilteredList|orderBy:sortKey:SearchGridreverse|filter:searchRecordSearch|itemsPerPage:Searchpagesize" pagination-id="SearchGrid">
+                                                        <td><span ng-class="{'HOME':'fa fa-home fa-lg', 'AUTO':'fa fa-bus fa-lg'}[item.claimType]"></span></td>
+                                                        <td ng-click="GotoClaimDetails($event,item)"><a>{{item.claimNumber}}</a></td> <!--{{item.claimId}}-->
+                                                        <td ng-click="GotoClaimDetails($event,item)"><a>{{item.insuredDetails.firstName}} &nbsp; &nbsp;{{item.insuredDetails.lastName}} </a></td>
+                                                        <td>{{item.insuredDetails.cellPhone}}</td>
+                                                        <td>{{item.createDate | date:'MMM-dd-yyyy'}}</td>
+                                                        <td><a class="btn btn-circle  btn-xs green">{{item.status.status}}</a></td>
+                                                        <td>
+                                                            <div class="col-md-12 btn-group btn-group-circle btn-outline">
+                                                                <button type="button" ng-click="AssignClaim(item,$index,'SearchFilteredList')" class="btn green btn-sm btn-outline">{{"ControlText.Assign"|translate}}</button>
+                                                                <button type="button" class="btn btn-sm red btn-outline" ng-click="RejectClaim(item,$index,'SearchFilteredList')">{{"ControlText.Reject"|translate}}</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr ng-if="(SearchFilteredList===null)||(SearchFilteredList.length ===0)">
+                                                        <td></td>
+                                                        <td colspan="6" class="text-center text-danger">{{"Table.Norecord"|translate}}</td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                </tfoot>
+                                            </table>
+                                            <dir-pagination-controls max-size="3" pagination-id="SearchGrid" ng-if="(SearchFilteredList!==null)||(SearchFilteredList.length >0)"
+                                                                     direction-links="true"
+                                                                     boundary-links="true" class="pull-right">
+                                            </dir-pagination-controls>
+                                        </div>
+                                        <div class="portlet margin-top-10">
+                                            <div class="portlet-title">
+                                            </div>
+                                        </div>
+                                    </div>
+                                       <!-- Search result -->
+                                    <div class="row margin-top-15" ng-show="!IsSearch">
+                                        <!--top buttons-->
+                                        <div class="col-md-12 margin-bottom-25">
+                                            <label class="col-md-1 text-primary">{{"Label.View"|translate}}</label>
+                                            <div class="col-md-3">
+                                                <select class="input-sm select2me" ng-change="FilterList()" ng-model="ClaimFilter">                                                    
+                                                    <option value="ALL">All</option>
+                                                    <option value="Home">Home</option>
+                                                    <option value="AUTO">Auto</option>
+                                                </select>
+                                            </div>
+                                            <label class="col-md-1 text-primary">{{"Label.PageSize"| translate}}</label>
+                                            <div class="col-md-3">
+                                                <select class="input-sm select2me pull-right" ng-model="pagesize">
+                                                    <option value="10">10 Claims</option>
+                                                    <option value="15">15 Claims</option>
+                                                    <option value="20">20 Claims</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4 ">
+                                                <div class="input-icon left">
+                                                    <i class="icon-magnifier"></i>
+                                                    <input type="text" ng-model="search" class="form-control form-control-solid input-circle input-block-level btnMargin" placeholder="{{'Label.search'| translate}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="col-md-12 padding-top-10px table-responsive" id="sample_5_wrapper">                                           
+                                            <table class="table table-striped table-bordered table-hover table-checkable order-column" id="dash">
+                                                <thead>
+                                                    <tr>
+                                                        <td ng-click="sort('claimType')">
+                                                            {{"Table.Type_Title" | translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="sortKey=='claimType'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                        </td>
+                                                        <td ng-click="sort('Reference')"> 
+                                                            {{"Table.Reference"|translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="sortKey=='Reference'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+
+                                                        </td>
+                                                       
+                                                        <td ng-click="sort('insuredDetails.firstName')">
+                                                             {{"Table.InsuredName"|translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="sortKey=='InsuredsName'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                        </td>
+                                                        <td ng-click="sort('insuredDetails.personalPhoneNumber')">
+                                                             {{"Table.InsuredsPhone"|translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="sortKey=='InsuredsPhone'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                        </td>
+                                                        <td ng-click="sort('ReportDate')" class="">
+                                                            {{"Table.ReportDate"|translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="sortKey=='ReportDate'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                        </td>
+                                                        <td ng-click="sort('Status')">
+                                                             {{"Table.Status"|translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="sortKey=='Status'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                        </td>
+                                                        <td>
+                                                             {{"Table.Action"|translate}}
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr  dir-paginate="item in FilteredFnolList|orderBy:sortKey:reverse|filter:search|itemsPerPage:pagesize" pagination-id="FNOLList" >
+                                                        <td><span ng-class="{'HOME':'fa fa-home fa-lg', 'AUTO':'fa fa-bus fa-lg'}[item.claimType]"></span></td>                                                        
+                                                        <td ng-click="GotoClaimDetails($event,item)"><a>{{item.claimNumber}}</a></td> <!--{{item.claimId}}-->
+                                                        <td ng-click="GotoClaimDetails($event,item)"><a>{{item.insuredDetails.firstName}} &nbsp; &nbsp;{{item.insuredDetails.lastName}} </a></td>
+                                                        <td>{{item.insuredDetails.cellPhone}}</td>
+                                                        <td>{{item.createDate | date:'dd-MM-yyyy'}}</td>
+                                                        <td><a class="btn btn-circle  btn-xs green">{{item.status.status}}</a></td>
+                                                        <td>
+                                                            <div class="col-md-12 btn-group btn-group-circle btn-outline">
+                                                                <button type="button" ng-click="AssignClaim(item,$index,'FilteredFnolList')" class="btn green btn-sm btn-outline">{{"ControlText.Assign"|translate}}</button>                                                               
+                                                                <button type="button" class="btn btn-sm red btn-outline" ng-click="RejectClaim(item,$index,'FilteredFnolList')">{{"ControlText.Reject"|translate}}</button>
+                                                            </div>                                                            
+                                                        </td>
+                                                    </tr>
+                                                    <tr ng-if="(FilteredFnolList===null)||(FilteredFnolList.length ===0)">
+                                                        <td></td>
+                                                        <td colspan="6" class="text-center text-danger">{{"Table.Norecord"|translate}}</td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot>
+
+                                                </tfoot>
+                                            </table>
+                                            <dir-pagination-controls max-size="3" ng-if="(FilteredFnolList!==null)||(FilteredFnolList.length >0)" pagination-id="FNOLList"
+                                                                     direction-links="true"
+                                                                     boundary-links="true" class="pull-right">
+                                            </dir-pagination-controls>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--all claims-->
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End FNOL Submission-->
+</div>

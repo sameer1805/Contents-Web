@@ -1,0 +1,295 @@
+﻿<div class="">
+    <!--Serach TextBox-->
+    <div class="col-md-12 margin-bottom-20" ng-click="GotoGlobalSearch()">
+        <div class="col-md-offset-1 col-md-10 ">
+            <div class="input-icon left">
+                <i class="icon-magnifier"></i>
+                <input type="text" class="form-control form-control-solid input-circle input-block-level" placeholder={{"GlobalSearchText"|translate}}>
+            </div>
+        </div>
+    </div>
+
+    <!--New Claims-->
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-green-sharp">
+                    <span class="caption-subject bold">
+                        <i class="fa fa-gear"></i>
+                        {{"HeaderText.NewClaims"|translate}}
+                    </span>
+                </div>
+                <div class="tools">
+                    <a href="#" class="collapse"></a>
+                    <a href="#" class="fullscreen"></a>
+                </div>
+
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="col-md-12 clearfix">
+                        <div class="col-md-12 table-responsive">
+                            <table class="table table-hover table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th ng-click="sortNewClaim('claimNumber')">
+                                        {{"Table.Claim"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortNewClaimKey=='claimNumber'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                        </th>
+                                        <th  ng-click="sortNewClaim('insuredDetails.firstName')">
+                                        {{"Table.InsuredsName"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortNewClaimKey=='insuredDetails.firstName'" ng-class="{'glyphicon-chevron-up pull-right':reverseNewClaim,'glyphicon-chevron-down pull-right':!reverseNewClaim}"></span>
+                                        </th>
+                                        <th  ng-click="sortNewClaim('insuredDetails.cellPhone')">
+                                        {{"Table.InsuredsPhone"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortNewClaimKey=='insuredDetails.cellPhone'" ng-class="{'glyphicon-chevron-up pull-right':reverseNewClaim,'glyphicon-chevron-down pull-right':!reverseNewClaim}"></span>
+                                        </th>
+                                        <th  ng-click="sortNewClaim('createDate')">
+                                        {{"Table.ReportDate"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortNewClaimKey=='createDate'" ng-class="{'glyphicon-chevron-up pull-right':reverseNewClaim,'glyphicon-chevron-down pull-right':!reverseNewClaim}"></span>
+                                        </th>
+                                        <th  ng-click="sortNewClaim('')">
+                                        {{"Table.ServiceRequested"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortNewClaimKey==''" ng-class="{'glyphicon-chevron-up pull-right':reverseNewClaim,'glyphicon-chevron-down pull-right':!reverseNewClaim}"></span>
+                                        </th>
+                                        <th  ng-click="sortNewClaim('status.status')">
+                                        {{"Table.Status"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortNewClaimKey=='status.status'" ng-class="{'glyphicon-chevron-up pull-right':reverseNewClaim,'glyphicon-chevron-down pull-right':!reverseNewClaim}"></span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr dir-paginate="Claims in NewClaims|orderBy:sortNewClaimKey:reverseNewClaim|itemsPerPage:pagesize" pagination-id="NewClaims">
+                                        <td><a href="#" ng-click="GoToClaimDetails(Claims)">{{Claims.claimNumber}}</a></td>
+                                        <td>{{Claims.insuredDetails.firstName +" "+Claims.insuredDetails.lastName}}</td>
+                                        <td>{{Claims.insuredDetails.cellPhone}}</td>
+                                        <td>{{Claims.createDate}}</td>
+                                        <td><!--{{Claims.ServiceRequested}}--></td>
+                                        <td>{{Claims.status.status}}</td>
+                                    </tr>
+                                    <tr ng-if="!NewClaims"><td colspan="6" class="text-danger text-center"> {{"NoRecordText"|translate}} </td></tr> 
+                                </tbody>
+                            </table>
+                            <dir-pagination-controls max-size="3" direction-links="true" boundary-links="true" class="pull-right" pagination-id="NewClaims">  </dir-pagination-controls>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End New Claims-->
+    <!--Claims In progress-->
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-green-sharp">
+                    <span class="caption-subject bold">
+                        <i class="fa fa-gear"></i>
+                        {{"HeaderText.InProgress"|translate}}
+                    </span>
+                </div>
+                <div class="tools">
+                    <a href="#" class="collapse"></a>
+                    <a href="#" class="fullscreen"></a>
+                </div>
+
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="col-md-12 clearfix">
+                        <div class="col-md-12 table-responsive">
+                            <table class="table table-hover table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th ng-click="sortInprogressClaim('claimNumber')">
+                                            {{"Table.Claim"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortInProgress=='claimNumber'" ng-class="{'glyphicon-chevron-up pull-right':reverseInProgress,'glyphicon-chevron-down pull-right':!reverseInProgress}"></span>
+                                        </th>
+                                        <th ng-click="sortInprogressClaim('insuredDetails.firstName')">
+                                            {{"Table.InsuredsName"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortInProgress=='insuredDetails.firstName'" ng-class="{'glyphicon-chevron-up pull-right':reverseInProgress,'glyphicon-chevron-down pull-right':!reverseInProgress}"></span>
+                                        </th>
+                                        <th ng-click="sortInprogressClaim('insuredDetails.cellPhone')">
+                                            {{"Table.InsuredsPhone"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortInProgress=='insuredDetails.cellPhone'" ng-class="{'glyphicon-chevron-up pull-right':reverseInProgress,'glyphicon-chevron-down pull-right':!reverseInProgress}"></span>
+                                        </th>
+                                        <th ng-click="sortInprogressClaim('createDate')">
+                                            {{"Table.ReportDate"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortInProgress=='createDate'" ng-class="{'glyphicon-chevron-up pull-right':reverseInProgress,'glyphicon-chevron-down pull-right':!reverseInProgress}"></span>
+                                        </th>
+                                        <th ng-click="sortInprogressClaim('')">
+                                            {{"Table.ServiceRequested"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortInProgress==''" ng-class="{'glyphicon-chevron-up pull-right':reverseInProgress,'glyphicon-chevron-down pull-right':!reverseInProgress}"></span>
+                                        </th>
+                                        <th ng-click="sortInprogressClaim('status.status')">
+                                            {{"Table.Status"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortInProgress=='status.status'" ng-class="{'glyphicon-chevron-up pull-right':reverseInProgress,'glyphicon-chevron-down pull-right':!reverseInProgress}"></span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr dir-paginate="Claims in InProgress|orderBy:sortInProgress:reverseInProgress|itemsPerPage:pagesize" pagination-id="InProgress">
+                                        <td><a href="#" ng-click="GoToClaimDetails(Claims)">{{Claims.claimNumber}}</a></td>
+                                        <td>{{Claims.insuredDetails.firstName +" "+Claims.insuredDetails.lastName}}</td>
+                                        <td>{{Claims.insuredDetails.cellPhone}}</td>
+                                        <td>{{Claims.createDate}}</td>
+                                        <td><!--{{Claims.ServiceRequested}}--></td>
+                                        <td>{{Claims.status.status}}</td>
+                                    </tr>
+                                    <tr ng-if="!InProgress"><td colspan="6" class="text-danger text-center">{{"NoRecordText"|translate}} </td></tr> 
+                                </tbody>
+                            </table>
+                            <dir-pagination-controls max-size="3" direction-links="true" boundary-links="true" class="pull-right" pagination-id="InProgress">  </dir-pagination-controls>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Claims In progress-->
+    <!--Waiting for approval-->
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-green-sharp">
+                    <span class="caption-subject bold">
+                        <i class="fa fa-gear"></i>
+                        {{"HeaderText.WaitingForApproval"|translate}}
+                    </span>
+                </div>
+                <div class="tools">
+                    <a href="#" class="collapse"></a>
+                    <a href="#" class="fullscreen"></a>
+                </div>
+
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="col-md-12 clearfix">
+                        <div class="col-md-12 table-responsive">
+                            <table class="table table-hover table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th ng-click="sortWaitingClaim('claimNumber')">
+                                            {{"Table.Claim"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortWaitingClaimKey=='claimNumber'" ng-class="{'glyphicon-chevron-up pull-right':reverseWaiting,'glyphicon-chevron-down pull-right':!reverseWaiting}"></span>
+                                        </th>
+                                        <th ng-click="sortWaitingClaim('insuredDetails.firstName')">
+                                            {{"Table.InsuredsName"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortWaitingClaimKey=='insuredDetails.firstName'" ng-class="{'glyphicon-chevron-up pull-right':reverseWaiting,'glyphicon-chevron-down pull-right':!reverseWaiting}"></span>
+                                        </th>
+                                        <th ng-click="sortWaitingClaim('insuredDetails.cellPhone')">
+                                            {{"Table.InsuredsPhone"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortWaitingClaimKey=='insuredDetails.cellPhone'" ng-class="{'glyphicon-chevron-up pull-right':reverseWaiting,'glyphicon-chevron-down pull-right':!reverseWaiting}"></span>
+                                        </th>
+                                        <th ng-click="sortWaitingClaim('createDate')">
+                                            {{"Table.ReportDate"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortWaitingClaimKey=='createDate'" ng-class="{'glyphicon-chevron-up pull-right':reverseWaiting,'glyphicon-chevron-down pull-right':!reverseWaiting}"></span>
+                                        </th>
+                                        <th ng-click="sortWaitingClaim('')">
+                                            {{"Table.ServiceRequested"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortWaitingClaimKey==''" ng-class="{'glyphicon-chevron-up pull-right':reverseWaiting,'glyphicon-chevron-down pull-right':!reverseWaiting}"></span>
+                                        </th>
+                                        <th ng-click="sortWaitingClaim('status.status')">
+                                            {{"Table.Status"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortWaitingClaimKey=='status.status'" ng-class="{'glyphicon-chevron-up pull-right':reverseWaiting,'glyphicon-chevron-down pull-right':!reverseWaiting}"></span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr dir-paginate="Claims in WaitingForApproval|orderBy:sortWaitingClaimKey:reverseWaiting|itemsPerPage:pagesize" pagination-id="Waiting">
+                                        <td><a href="#" ng-click="GoToClaimDetails(Claims)">{{Claims.claimNumber}}</a></td>
+                                        <td>{{Claims.insuredDetails.firstName +" "+Claims.insuredDetails.lastName}}</td>
+                                        <td>{{Claims.insuredDetails.cellPhone}}</td>
+                                        <td>{{Claims.createDate}}</td>
+                                        <td><!--{{Claims.ServiceRequested}}--></td>
+                                        <td>{{Claims.status.status}}</td>
+                                    </tr>
+                                    <tr ng-if="!WaitingForApproval"><td colspan="6" class="text-danger text-center"> {{"NoRecordText"|translate}} </td></tr> 
+                                </tbody>
+                            </table>
+                            <dir-pagination-controls max-size="3" direction-links="true" boundary-links="true" class="pull-right" pagination-id="Waiting">
+                                 
+                            </dir-pagination-controls>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Waiting for approval-->
+    <!--Orders-->
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-green-sharp">
+                    <span class="caption-subject bold">
+                        <i class="fa fa-gear"></i>
+                        {{"HeaderText.Orders"|translate}}
+                    </span>
+                </div>
+
+                <div class="tools">
+                    <a href="#" class="collapse"></a>
+                    <a href="#" class="fullscreen"></a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="col-md-12 clearfix">
+                        <div class="col-md-12 table-responsive">
+                            <table class="table table-hover table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th ng-click="sortOrderClaim('Claim')">
+                                            {{"Table.Claim"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortOrderClaimKey=='Claim'" ng-class="{'glyphicon-chevron-up pull-right':reverseOrderClaim,'glyphicon-chevron-down pull-right':!reverseOrderClaim}"></span>
+                                        </th>
+                                        <th ng-click="sortOrderClaim('InsuredsName')">
+                                            {{"Table.InsuredsName"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortOrderClaimKey=='InsuredsName'" ng-class="{'glyphicon-chevron-up pull-right':reverseOrderClaim,'glyphicon-chevron-down pull-right':!reverseOrderClaim}"></span>
+                                        </th>
+                                        <th ng-click="sortOrderClaim('InsuredsPhone')">
+                                            {{"Table.InsuredsPhone"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortOrderClaimKey=='InsuredsPhone'" ng-class="{'glyphicon-chevron-up pull-right':reverseOrderClaim,'glyphicon-chevron-down pull-right':!reverseOrderClaim}"></span>
+                                        </th>
+                                        <th ng-click="sortOrderClaim('ReportDate')">
+                                            {{"Table.ReportDate"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortOrderClaimKey=='ReportDate'" ng-class="{'glyphicon-chevron-up pull-right':reverseOrderClaim,'glyphicon-chevron-down pull-right':!reverseOrderClaim}"></span>
+                                        </th>
+                                        <th ng-click="sortOrderClaim('ServiceRequested')">
+                                            {{"Table.ServiceRequested"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortOrderClaimKey=='ServiceRequested'" ng-class="{'glyphicon-chevron-up pull-right':reverseOrderClaim,'glyphicon-chevron-down pull-right':!reverseOrderClaim}"></span>
+                                        </th>
+                                        <th ng-click="sortOrderClaim('Status')">
+                                            {{"Table.Status"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortOrderClaimKey=='Status'" ng-class="{'glyphicon-chevron-up pull-right':reverseOrderClaim,'glyphicon-chevron-down pull-right':!reverseOrderClaim}"></span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr dir-paginate="Claims in MyClaims3|orderBy:sortOrderClaimKey:reverseOrderClaim|itemsPerPage:pagesize" pagination-id="Order">
+                                        <td><a href="#" ng-click="GoToClaimDetails(Claims)">{{Claims.Claim}}</a></td>
+                                        <td><a href="#" ng-click="GoToClaimDetails(Claims)">{{Claims.InsuredsName}}</a></td>
+                                        <td><a href="#" ng-click="GoToClaimDetails(Claims)">{{Claims.InsuredsPhone}}</a></td>
+                                        <td><a href="#" ng-click="GoToClaimDetails(Claims)">{{Claims.ReportDate}}</a></td>
+                                        <td><a href="#" ng-click="GoToClaimDetails(Claims)">{{Claims.ServiceRequested}}</a></td>
+                                        <td><a href="#" ng-click="GoToClaimDetails(Claims)">{{Claims.Status}}</a></td>
+                                    </tr>
+                                    <tr ng-if="!MyClaims3"><td colspan="6" class="text-danger"> {{"NoRecordText"|translate}} </td></tr> 
+
+                                </tbody>
+                            </table>
+                            <dir-pagination-controls max-size="3" direction-links="true" boundary-links="true" class="pull-right" pagination-id="Order">  </dir-pagination-controls>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Orders-->
+</div>

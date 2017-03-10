@@ -1,0 +1,25 @@
+﻿{
+  "HeaderText": {
+    "NewSubmissions": "New Submissions",
+    "NewClaims": "New Claims",
+    "InProgress": "In Progress",
+    "WaitingForApproval": "Waiting For Approval",
+    "Orders": "Orders"
+  },
+  "ControlText": {
+    "Show": "Show",
+    "View": "View"
+  },
+  "Table": {
+    "Claim": "Claim #",
+    "InsuredsName": "Insured's Name",
+    "InsuredsPhone": "Insureds Phone #",
+    "ReportDate": "Report Date",
+    "ServiceRequested": "Service(S) Requested",
+    "Action": "Action",
+    "Status": "Status"
+  },
+  "SearchText": "Search Reference #, Insured's Name, Phone #",
+  "GlobalSearchText": "Serach ...Any Claim #, Policyholder",
+  "NoRecordText": "No Records Available"
+}

@@ -1,0 +1,10 @@
+﻿{
+  "MainHeading": "User Role - Permission Mapping",
+  "ControlText": {
+    "Save": "Save",
+    "Permission": "Permission"
+  },
+  "Label": {
+    "RoleGroup": "Role / Group"
+  }
+}

@@ -1,0 +1,113 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-12 clearfix">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-green-sharp">
+                        <i class="icon-settings font-green-sharp"></i>
+                        <span class="caption-subject bold uppercase">{{"MainHeader.ClaimAssociates"|translate}} </span>
+                    </div>
+                    <div>
+                        <div class="pull-right">
+                            <button id="sample_editable_1_new" class="btn sbold green btnMargin" ng-click="AddNewAssociate()">
+                                <i class="fa fa-plus red"></i>
+                                {{"ControlText.NewAssociate"|translate}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="portlet light bordered">
+                                <div class="portlet-title margin-bottom-25">
+                                    <label class="col-md-1 text-primary">{{"ControlText.View"|translate}}</label>
+                                    <div class="col-md-3">
+                                        <select class="input-sm select2me" ng-model="ClaimFilter">
+                                            <option value="ALL">All</option>
+                                            <option value="Home">Home</option>
+                                            <option value="AUTO">Auto</option>
+                                        </select>
+                                    </div>
+                                    <label class="col-md-1 text-primary">{{"ControlText.Show"| translate}}</label>
+                                    <div class="col-md-3">
+                                        <select class="input-sm select2me pull-right" ng-model="PageLength">
+                                            <option value="10">10 Claims</option>
+                                            <option value="15">15 Claims</option>
+                                            <option value="20">20 Claims</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="input-icon left">
+                                            <i class="icon-magnifier"></i>
+                                            <input type="text" ng-model="search" class="form-control form-control-solid input-circle input-block-level btnMargin" placeholder="{{'ControlText.Search'| translate}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="row">
+                                        <div class="col-md-12 padding-top-10px table-responsive">
+                                            <table class="table table-striped table-bordered table-hover table-checkable order-column">
+                                                <thead>
+                                                    <tr>
+                                                        <td ng-click="sort('EmployeeId')">
+                                                            {{"Table.EmployeeId" | translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="sortKey=='EmployeeId'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                        </td>
+                                                        <td ng-click="sort('Name')">
+                                                            {{"Table.Name"|translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="sortKey=='Name'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                        </td>
+                                                        <td ng-click="sort('Claimsinhand')">
+                                                            {{"Table.Claimsinhand"|translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="sortKey=='Claimsinhand'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                        </td>
+                                                        <td ng-click="sort('Designation')">
+                                                            {{"Table.Designation"|translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="sortKey=='Designation'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                        </td>
+                                                        <td ng-click="sort('Type')" class="">
+                                                            {{"Table.Type"|translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="sortKey=='Type'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                        </td>
+                                                        <td ng-click="sort('Status')">
+                                                            {{"Table.Status"|translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="sortKey=='Status'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-if="ClaimAssociatesList!=null" dir-paginate="item in ClaimAssociatesList|orderBy:sortKey:reverse|filter:search|itemsPerPage:PageLength">
+                                                        <td ng-click="EditAssociate(item)"><a>{{item.EmployeeId}}</a></td>
+                                                        <td ng-click="EditAssociate(item)"><a>{{item.Name}} </a></td>
+                                                        <td>{{item.Claimsinhand}}</td>
+                                                        <td>{{item.Designation}}</td>
+                                                        <td>{{item.Type}}</td>
+                                                        <td><a class="btn btn-circle  btn-xs green">{{item.Status}}</a>
+                                                        
+                                                            <span ng-class="{'Active':'btn btn-circle  btn-xs green', 'InActive':'btn btn-circle  btn-xs red'}[item.status]"></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr ng-if="(ClaimAssociatesList===null)||(ClaimAssociatesList.length ===0)">
+                                                        <td></td>
+                                                        <td colspan="5" class="text-center text-danger">No records avaliable</td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                </tfoot>
+                                            </table>
+                                            <dir-pagination-controls max-size="3" ng-if="ClaimAssociatesList!==null"
+                                                                     direction-links="true"
+                                                                     boundary-links="true" class="pull-right">
+                                            </dir-pagination-controls>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

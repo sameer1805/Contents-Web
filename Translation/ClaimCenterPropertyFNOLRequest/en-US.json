@@ -1,0 +1,109 @@
+﻿{
+
+  "MainHeader": {
+    "ClaimInformation": "Claim Information",
+    "PolicyDetails": "Policy Details",
+    "ClaimDetails": "Claim Details",
+    "tabRportDetails": "Report Details",
+    "ContactInformation": "Contact Information",
+    "TableContenetDamage": "CONTENTS REPORTED AS LOST / DAMAGED"
+  },
+  "ControlText": {
+    "Back": "Back",
+    "Assign": "Assign",
+    "Save": "Save",
+    "rdoYes": " Yes",
+    "rdoNo": " No",
+    "CreatePolicy": "Create Policy",
+    "AddItem_Title": "Add Item",
+    "Delete_Title": "Delete",
+    "GO": "Check Policy #",
+    "LoadFromFile": "Load From File"
+
+  },
+  "Label": {
+    "coveragelimit": "Coverage limit",
+    "Claim#": "Claim #",
+    "policyNo": "policy No",
+    "ReportDate": "Report Date",
+    "Policy#": "Policy #",
+    "PolicyCoverage": "Policy Coverage",
+    "SpecialLimit": "Special Limit",
+    "AggregateCoverage": "Aggregate Coverage",
+    "ItemCategory": "Add Category Coverage",
+    "AddNote": "Add Note",
+    "IncidentOccur": "When did the incident occur?",
+    "DateofIncident": "Date of Incident",
+    "Injured": "Was anyone injured in the incident?",
+    "Homedamaged": "Where some home items damaged?",
+    "accommodation": "Do you need temporary accommodation?",
+    "DetailReport": "Report Details",
+    "ReportDesc": "Report Description",
+    "Picture": "Pictures of the incident",
+    "LstName": "Last Name",
+    "Frstname": "First Name",
+    "DayPhone": "Day Time Phone",
+    "EveningPhone": "Evening Time Phone",
+    "CellPhone": "Cell Phone",
+    "Mail": "Email Id",
+    "Address": "Address",
+    "Streetadd1": "Street Address 1",
+    "Streetadd2": "Street Address 2",
+    "City/town": "City / Town",
+    "State": "State",
+    "Zip": "Zip Code",
+    "ClaimType": "Claim Type",
+    "PolicyType": "Policy Type",
+    "HomePoliceType": "Home Owner's Policy Type",
+    "Deductible": "Deductible",
+    "TaxRate": "Tax Rates",
+    "ddlView": "View",
+    "search": "Search...",
+    "DamageTypes": "Damage Types",
+    "ClaimTypes": "Claim Types"
+
+  },
+  "FNOL_Save": {
+    "Title": "FNOL Details",
+    "Message": "FNOL details updated successfully..",
+    "BtnYes": "OK"
+
+  },
+  "AddItemWarning": {
+    "Title": "Add item",
+    "Message": "Save claim details and then add new lost/damage items.",
+    "BtnYes": "OK"
+
+  },
+  "Table": {
+    "ItemId": "Item Id",
+    "Type_Title": "Type",
+    "Claim_Title": "Claim",
+    "Policy_Title": "Policy",
+    "InsuredName_Title": "Insured's Name",
+    "DateClaim_Title": "Date Of Claim",
+    "Status_Title": "Status",
+    "Action_Title": "Action",
+    "ItemName_Title": "Item Name",
+    "Brand": "Brand",
+    "Model": "Model",
+    "InsuredValue(Price)": "Insured Value(Price)",
+    "ScheduledItem": "Scheduled Item",
+    "Price Quated": "Price Quated",
+    "Price": "Price",
+    "Category": "Category",
+    "Sub-Category": "Sub-Category",
+    "Age": "Age",
+    "Status": "Status",
+    "ReplacedValue": "Replaced Value",
+    "RCV": "RCV",
+    "ACV": "ACV",
+    "Payout": "Patout",
+    "Check": "Check#",
+    "Holdover": "Holdover",
+    "Action": "Action",
+    "Depreciation": "Depreciation",
+    "Description": "Description"
+
+  }
+}

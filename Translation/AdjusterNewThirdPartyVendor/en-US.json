@@ -1,0 +1,44 @@
+﻿{
+  "NewThirdPartyVendorTitle": "New Third Party Vendor ",
+  "InviteThirdPartyVendor": "Send Email Invite",
+
+  "ControlText": {
+    "SendInvite": "Send Invite",
+    "Back": "Back",
+    "Save": "Save",
+    "Update": "Update"
+  },
+  "FormControlText": {
+    "EmailId": "Email Id",
+    "BodyOfInvite": "Body Of Invite"
+
+  },
+  "Label": {
+    "Heading": "Supplier #",
+    "CompanyWebsite": "Company Website",
+    "ContactPerson": "Contact Person*",
+    "FirstName": "First Name",
+    "LastName": "LastName",
+    "Phone": "Phone #",
+    "Email": "Email",
+    "SuppliersPhone": "Supplier's Phone #*",
+    "PhoneType": "Phone Type",
+    "ShippingAddress": "Shipping Address",
+    "BillingAddress": "Billing Address",
+    "AddressLine1": "Address Line 1",
+    "AddressLine2": "Address Line 2",
+    "City": "City",
+    "State": "State",
+    "ZipCode": "Zip Code",
+    "Status": "Status",
+    "SupplierName": "Supplier Name"
+  },
+  "HeadingText": {
+    "CategoryExpertise": "Category Expertise"
+  },
+  "AlertBox": {
+    "SaveTitle": "Save New Vendor",
+    "SaveMessage": "New Vendor Added To System Successfully..!!"
+  }
+
+}

@@ -1,0 +1,90 @@
+﻿{
+  "ControlText": {
+    "Back_title": "Back",
+    "Assign_title": "Assign",
+    "Save_title": "Save",
+    "Status_title": "Status",
+    "Add_title": "Add To Comparables",
+    "Update_title": "Update",
+    "Delete_title": "Delete",
+    "Value_title": "Value",
+    "Payout_title": "Payout",
+    "View_title": "View",
+    "BuyView_title": "Buy/View Here",
+    "AddNote_title": "Send Note",
+    "SortBy": "Sort By",
+    "Done_title": "Done"
+
+  },
+
+  "HeaderText": {
+    "LineItemDetails_title": "Item Details",
+    "LineItemNotes_title": "Notes And Attachments",
+    "Comparables": "Comparables",
+    "OriginalItem": "Original Item",
+    "ComparableDetails": "Comparable Details",
+    "SearchComparables": "Search Comparables",
+    "AddedComparables": "Added Comparables"
+
+  },
+
+  "TabHeaderText": {
+    "Comparables_title": "Comparables",
+    "Images_title": "Images",
+    "Holdover_title": "Holdover"
+  },
+
+  "FormControlText": {
+    "PriceQuoted": "Price Quoted",
+    "RCV": "RCV",
+    "Category": "Category",
+    "Depreciation": "Depreciation%",
+    "SubCategory": "SubCategory",
+    "ACV": "ACV",
+    "Brand": "Brand",
+    "TaxRate": "Tax  Rate",
+    "Model": "Model",
+    "TotalTax": "Total Tax",
+    "ItemType": "Item Type",
+    "ValueOfItem": "Value Of Item",
+    "AssignedTo": "Assigned To",
+    "Holdover": "Holdover",
+    "YearOfManufacture": "Year Of Manufacture ",
+    "PayoutCheck": "Payout Check #",
+    "PolicyHolderDescription": "Policyholder Description",
+    "AdjusterDescription": "Adjuster Description",
+    "AddToComparables": "Add To Comparables",
+    "MakeModel": "Make/Model",
+    "Price": "Price",
+    "BuyViewHere": "Buy/View Here",
+    "FinalReplacementValue": "Final Replacement Value",
+    "InsuranceType": "Insurance Type",
+    "ScheduledItem": "Scheduled Item",
+    "Yes/No": "Yes/No",
+    "PayoutMode": "Payout Mode",
+    "PayoutCheck/DebitCardNo": "Payout Check#/Debit Card #",
+    "HoldoverCheck/DebitCardNo": "Holdover Check#/Debit Card #",
+    "DateOfPayment": "Date Of Payment",
+    "HoldoverPaymentDate": "Holdover Payment Date",
+    "VendorInvoice": "Vendor Invoice",
+    "Status": "Status",
+    "ItemId": "Item Id",
+    "Replaced": "Replaced",
+    "VendorDescription": "Vendor Description",
+    "ReplacementReceipt": "Replacement Receipt(s)",
+    "UnitPrice": "Unit Price",
+    "Supplier": "Supplier",
+    "MarkReplacementItem": "Mark as Replacement Item"
+
+  },
+  "Radio": {
+    "Check": "Check",
+    "DebitCard": "Debit Card",
+    "Yes": "Yes",
+    "No": "No"
+  },
+  "SearchforComparablesText": "Search For More Comparable",
+  "ComparablesSearch": "Search and add more comparables",
+  "ParticipantSearchText": "Participant"
+
+}
