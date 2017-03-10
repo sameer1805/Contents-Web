@@ -1,0 +1,26 @@
+﻿{
+  "MainHeadreText": {
+    "ClaimCenterManage": "Claim Center Manager",
+    "Adjuster": "Adjuster",
+    "Company": "Company",
+    "Administrator": "Administrator",
+    "ThirdPartyVendor": "Third Party Vendor"
+  },
+  "Menulist": {
+    "Dashboard": "Dashboard",
+    "AllClaims": "All Claims",
+    "MyClaims": "My Claims",
+    "ClaimsInprogress": "Claims In progress",
+    "Company": "Company",
+    "Office": "Office",
+    "ThirdPartyVendor": "3rd Party Vendor",
+    "ThirdPartyVendorDashboard": "Dashboard",
+    "AdminThirdPartyVendor": "3rd Party Vendor",
+    "AdminScreenMapping": "Roles And Screen",
+    "AdminPermissionMapping": "Roles And Permission",
+    "Inventory": "Inventory",
+    "ClaimSpecialists": "Claim Specialists",
+    "ClaimSpecialistsHome": "Claim Specialists",
+    "ClaimAssociates": "Claim Associates"
+  }
+}

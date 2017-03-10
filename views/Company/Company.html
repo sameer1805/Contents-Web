@@ -1,0 +1,259 @@
+﻿<div class="col-md-12">
+    <div class="portlet light bordered">
+        <div class="portlet-title tabbable-line">
+            <ul class="nav nav-tabs pull-left">
+                <li class="active">
+                    <a href="tab_home" data-toggle="tab" ng-click="ShowHome($event)">{{"TabHeaderText.Home_title"|translate}}</a>
+                </li>
+                <li >
+                    <a href="tab_company" data-toggle="tab" ng-click="ShowCompany($event)"> {{"TabHeaderText.Company_title"|translate}} </a>
+                </li>
+                <li class="tab_contacts">
+
+                    <a href="tab_contacts" data-toggle="tab" ng-click="ShowContacts($event)"> {{"TabHeaderText.Contacts_title"|translate}} </a>
+                </li>
+                <li>
+                    <a href="tab_categories" data-toggle="tab" ng-click="ShowCategories($event)"> {{"TabHeaderText.Categories_title"|translate}}</a>
+                </li>
+                <li>
+                    <a href="tab_coverage" data-toggle="tab" ng-click="ShowCoverage($event)"> {{"TabHeaderText.Coverage_title"|translate}}</a>
+                </li>
+
+                <li>
+                    <a href="tab_Administrator" data-toggle="tab" ng-click="ShowAdministrator($event)">{{"TabHeaderText.Administration_title"|translate}} </a>
+                </li>
+            </ul>
+        </div>
+        <div class="portlet-body">
+            <div class="tab-content">
+                <!--Home Tab-->
+                <div class="tab-pane active" id="tab_home" ng-if="ShowTabHome">
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                               
+                                    <div class="row"  ng-include="'/views/Company/CompanyHome.html'" ng-controller="CompanyHomeController">
+
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Home Tab-->
+                <!--Company Tab-->
+                <div class="tab-pane active " id="tab_company" ng-if="ShowTabCompany">
+                    <!--Begin Company Tab-->
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="portlet light bordered">
+                                    <div class="col-md-12 margin-bottom-20 portlet-title">
+                                        <h4 class="text-primary"><b>{{"HeaderText.NewCompany_title"|translate}}</b></h4>
+                                    </div>
+                                    <div class="row">
+                                        <!--First Step-->
+                                        <div class="row portlet-title" id="FirstStep" ng-if="ShowComanyDetails">
+                                            <div class="col-md-6">
+                                                <div class="form-group col-md-12">
+                                                    <div class="col-md-4 ">
+                                                        <label class="col-md-12">{{"FormControlText.CompanyId_title"|translate}}</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" placeholder={{"FormControlText.CompanyId_title"|translate}} />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <div class="col-md-4 ">
+                                                        <label class="col-md-12">{{"FormControlText.CompanyName_title"|translate}}</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" placeholder={{"FormControlText.CompanyName_title"|translate}} />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <div class="col-md-4 ">
+                                                        <label class="col-md-12">{{"FormControlText.CompanyWebsite_title"|translate}}</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" placeholder={{"FormControlText.CompanyWebsite_title"|translate}} />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <div class="col-md-4 ">
+                                                        <label class="col-md-12">{{"FormControlText.CompanyAddress_title"|translate}}</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <textarea class="form-control" placeholder={{"FormControlText.CompanyAddress_title"|translate}}></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <div class="col-md-4 ">
+                                                        <label class="col-md-12">{{"FormControlText.CompanyZip_title"|translate}}</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" placeholder={{"FormControlText.CompanyZip_title"|translate}} />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <div class="col-md-4 ">
+                                                        <label class="col-md-12">{{"FormControlText.CompanyPhoneNumber_title"|translate}}</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" placeholder={{"FormControlText.CompanyPhoneNumber_title"|translate}} />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <div class="col-md-4 ">
+                                                        <label class="col-md-12">{{"FormControlText.CompanyFax_title"|translate}}</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" placeholder={{"FormControlText.CompanyFax_title"|translate}} />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--File Upload-->
+                                            <div class="form-group col-md-6">
+                                                <div class="col-md-4">
+                                                    <label class="col-md-12">Company Logo</label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input type="file" class="pull-left" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--End First Step-->
+
+                                        <!--Second Step-->
+                                        <div class="row" id="SecondStep" ng-if="showPersonalDetails">
+                                            <div class="col-md-7">
+
+                                                <div class="form-group col-md-12">
+                                                    <div class="col-md-12">
+                                                        <label class="col-md-12"><b>{{"HeaderText.PersonalContactsDetails_Title"|translate}}</b></label>
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <div class="col-md-4 ">
+                                                        <label class="col-md-12">{{"FormControlText.CompanyId_title"|translate}}</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text" placeholder={{"FormControlText.CompanyId_title"|translate}} class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <div class="col-md-4 ">
+                                                        <label class="col-md-12">{{"FormControlText.PersonalInfo_FirstName_title"|translate}} *</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" placeholder='{{"FormControlText.PersonalInfo_FirstName_title"|translate}}' />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <div class="col-md-4 ">
+                                                        <label class="col-md-12">{{"FormControlText.PersonalInfo_LastName_title"|translate}}*</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" placeholder='{{"FormControlText.PersonalInfo_LastName_title"|translate}}' />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <div class="col-md-4 ">
+                                                        <label class="col-md-12">{{"FormControlText.PersonalInfo_EmailId_title"|translate}}*</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" placeholder='{{"FormControlText.PersonalInfo_EmailId_title"|translate}}' />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <div class="col-md-4 ">
+                                                        <label class="col-md-12">{{"FormControlText.PersonalInfo_PhoneNumber_title"|translate}} </label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" placeholder='{{"FormControlText.PersonalInfo_PhoneNumber_title"|translate}}' />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <div class="col-md-4 ">
+                                                        <label class="col-md-12 text-primary">{{"FormControlText.PersonalInfo_AssignAsCompAdmn_title"|translate}}*</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <label class="mt-checkbox mt-checkbox-outline mt-checkbox-single">
+                                                            <input type="checkbox" class="checkboxes" value="1" />
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group col-md-12">
+                                                    <div class="col-md-offset-4 col-md-8 text-left text-danger">
+                                                        {{"FormControlText.PersonalInfo_Note_title"|translate}}
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <!--End Second Step-->
+
+                                        <!--Footer Buttons-->
+                                        <div class="col-md-12 text-right">
+                                                    <button id="btnRegister" class="btn sbold green btnMargin" ng-click="Register($event)" ng-if="showRegisterbtn">
+                                                        <i class="fa fa-register"></i>
+                                                        {{"ControlText.Register_title"|translate}}
+                                                    </button>
+                                                    <button id="btnBack" class="btn sbold red  btnMargin" ng-click="PrevStep($event)" ng-if="showbackbtn">
+                                                        <i class="fa fa-arrow-left"></i>
+                                                        {{"ControlText.Back_title"|translate}}
+                                                    </button>
+                                                    <button id="btnNext" class="btn  sbold green btnMargin "  ng-click="NextStep($event)" ng-if="shownextbtn">
+                                                        {{"ControlText.Next_title"|translate}}
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </button>
+                                        </div>
+                                        <!--End Footer Buttons-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--End Company Tab-->
+                </div>
+                <!-- End Company Tab-->
+                <!--Contact Tab-->
+                <div class="tab-pane active " id="tab_contacts" ng-if="showTabContacts">
+                    <div class="row "  ng-include="'/views/Company/Contacts.html'" ng-controller="ContactsController">
+
+                    </div>
+                </div>
+                <!--End Contact Tab-->
+                <!--Categories Tab-->
+                <div class="tab-pane active" id="tab_categories" >
+                    <!-- BEGIN:Completed-->
+                    <div class="row" ng-if="showTabCategories" ng-include="'/views/Company/Category.html'" ng-controller="CategoryController">
+
+                    </div>
+                </div>
+                <!--End Categories Tab-->
+                <!--Coverage Tab-->
+                <div class="tab-pane active" ng-if="ShowTabCoverage" id="tab_coverage">
+                    <!-- BEGIN:Completed-->
+                    <h1>tab coverage</h1>
+                </div>
+                <!--End Coverage Tab-->
+                <!--Coverage Tab-->
+                <div class="tab-pane active" id="tab_Administrator">
+                    <!-- BEGIN:Completed-->
+                    <div class="row" ng-if="ShowTabAdministrator" ng-include="'/views/Company/CompanyAdminstration.html'" ng-controller="CompanyAdminstrationController">
+
+                    </div>
+                </div>
+                <!--End Coverage Tab-->
+            </div>
+        </div>
+    </div>
+</div>

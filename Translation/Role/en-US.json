@@ -1,0 +1,10 @@
+﻿{
+  "HeadingText": {
+    "RoleHeading_title": "Roles"
+
+  },
+  "ControlText": {
+    "AssignRole_title": "Add",
+    "CancelRole_title": "Cancel"
+  }
+}

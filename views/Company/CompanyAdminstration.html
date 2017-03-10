@@ -1,0 +1,161 @@
+﻿<div class="">
+    <div class="col-md-12">
+        <div class="portlet-body">
+            <div class="row">
+                <div class="col-md-12 ">
+                    <div class="portlet light bordered">
+                        <div class="col-md-12 margin-bottom-20 portlet-title">
+                            <h5 class="text-primary"><b>{{"MainHeadings.showuser" | translate}}</b></h5>
+                        </div>
+                        <div class="portlet-title margin-bottom-25">
+                            <div class="col-md-12 margin-bottom-25 ">
+                                <div class="form-group col-md-4">
+                                    <div class="col-md-5">
+                                        <label class="control-label  text-primary">{{"Filterhead.username"|translate}}</label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control" placeholder={{"Table.username"|translate}} />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <div class="col-md-4">
+                                        <label class="control-label  text-primary">{{"Filterhead.role"|translate}}</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-control" ng-model="pagesize">
+                                            <option value="Active">Admin</option>
+                                            <option value="InActive">User</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <div class="col-md-4">
+                                        <label class="control-label  text-primary">{{"Filterhead.status"|translate}}</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-control" ng-model="pagesize">
+                                            <option value="Active">Active</option>
+                                            <option value="InActive">InActive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group col-md-12">
+                                        <button id="sample_editable_1_new" class="btn sbold green">
+                                            <i class="fa fa-search"></i>
+                                            {{"btn.Search"|translate}}
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 margin-bottom-20 portlet-title">
+                            <h5 class="text-primary"><b>{{"MainHeadings.UpdateOption" | translate}}</b></h5>
+                        </div>
+                        <div class="portlet-title margin-bottom-25">
+                            <div class="form-group col-md-12 margin-bottom-25 text-right">
+                                <div class="form-group col-md-4 col-md-offset-3">
+                                    <div class="col-md-12">
+                                        <select class="form-control">
+                                            <option value="">Update Options</option>
+                                            <option value="">Update Options</option>
+                                            <option value="">Update Options</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <div class="col-md-12">
+                                        <button id="sample_editable_1_new" class="btn sbold green form-control" ng-click="openmodel($event)">
+                                            <i class="fa fa-save"></i>
+                                            {{"btn.Update"|translate}}
+                                        </button>
+                                    </div>
+
+                                </div>
+                                <div class="form-group col-md-3 pull-right ">
+                                        <div class="col-md-4 text-left">
+                                            <label class="control-label text-primary">{{"btn.pagelength"| translate}}</label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select class="form-control" ng-model="pagesize">
+                                                <option value="5">5 Claims</option>
+                                                <option value="10">10 Claims</option>
+                                                <option value="15">15 Claims</option>
+                                                <option value="20">20 Claims</option>
+                                            </select>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="row">
+                                <div class="col-md-12 table-responsive">
+                                    <table class="table  table-striped table-bordered table-hover table-checkable order-column">
+                                        <thead>
+                                            <tr>
+                                                <td></td>
+                                                <td ng-click="sort('UserName')">
+                                                    {{"Table.username"|translate}}
+                                                    <span class="glyphicon sort-icon" ng-show="sortKey=='UserName'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                </td>
+                                                <td ng-click="sort('Status')">
+                                                    {{"Table.Status"|translate}}
+                                                    <span class="glyphicon sort-icon" ng-show="sortKey=='Status'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+
+                                                </td>
+                                                <td ng-click="sort('Role')">
+                                                    {{"Table.role"|translate}}
+
+                                                    <span class="glyphicon sort-icon" ng-show="sortKey=='Role'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                </td>
+                                                <td ng-click="sort('LastAccess')">
+                                                    {{"Table.lastaccess"|translate}}
+                                                    <span class="glyphicon sort-icon" ng-show="sortKey=='LastAccess'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                </td>
+                                                <td ng-click="sort('MemberSince')">
+                                                    {{"Table.membersince"|translate}}
+                                                    <span class="glyphicon sort-icon" ng-show="sortKey=='MemberSince'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                </td>
+                                                <td>
+                                                    {{"Table.operation"|translate}}
+                                                    <span class="glyphicon sort-icon"></span>
+                                                </td>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr ng-if="data!=null" dir-paginate="item in data|orderBy:sortKey:reverse|filter:search|itemsPerPage:pagesize">
+                                                <td>{{item.Id}}</td>
+                                                <td>{{item.UserName}}  </td>
+                                                <td>{{item.Status}}</td>
+                                                <td>{{item.Role}}</td>
+                                                <td>{{item.LastAccess}}</td>
+                                                <td>{{item.MemberSince}}</td>
+                                                <td>
+                                                    <div class="btn-group btn-group-circle btn-outline">
+                                                        <button ng-click="editAdminContact(item)" class="btn green btn-sm btn-outline">{{"btn.edit"|translate}}</button>
+                                                        <button ng-click="DeleteAdminContact(item,$index)" class="btn red btn-sm  btn-outline">{{"btn.delete"|translate}}</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                    <div class="clearfix"></div><dir-pagination-controls max-size="3"
+                                                                                         direction-links="true"
+                                                                                         boundary-links="true" class="pull-right ">
+                                    </dir-pagination-controls>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

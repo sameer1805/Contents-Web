@@ -1,0 +1,36 @@
+﻿<!--modal div-->
+<div >
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancel($event)"></a>
+        <h4 class="modal-title">{{"HeadingText.RoleHeading_title"|translate}}</h4>
+    </div>
+    <div class="modal-body">
+       <div class="row">
+           <div class="col-md-12 table-responsive">
+               <table class="table table-striped table-hover table-bordered col-md-12">
+                   <tbody>
+                       <tr ng-repeat="Role in Roles">
+                           <td>{{Role.Role}}</td>
+                           <td>
+                               <!--<label class="mt-radio mt-radio-outline mt-radio-single ">
+                                   <input type="radio" class="group-checkable" name="selectAdjuster" ng-click="getAllCheck(item.Type)" ng-model="boolValue" />
+                                   <span></span>
+                               </label>-->
+                               <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                   <input type="checkbox" class="group-checkable"  />
+                                   <span></span>
+                               </label>
+                           </td>
+                       </tr>
+                   </tbody>
+               </table>
+           </div>
+       </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn dark btn-outline" data-dismiss="modal" ng-click="cancel($event)">{{"ControlText.CancelRole_title"|translate}}</button>
+        <button type="button" class="btn green" ng-click="ok($event)"> {{"ControlText.AssignRole_title"|translate}} </button>
+    </div>
+</div>
+<!-- /.modal-content -->
+

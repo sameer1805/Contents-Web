@@ -1,0 +1,10 @@
+﻿{
+  "MainHeading": "User Role - Screen Mapping",
+  "ControlText": {
+    "Save": "Save",
+    "AccessibleScreens": "Accessible Screens"
+  },
+  "Label": {
+    "RoleGroup": "Role / Group"
+  }
+}

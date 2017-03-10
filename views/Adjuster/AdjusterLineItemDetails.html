@@ -1,0 +1,749 @@
+﻿<style>
+    .comparablesDiv{
+       height:1338px;
+       overflow:auto;
+    }
+
+    .itemImageScrollableDiv{
+        height:903px;
+        overflow-y:auto;
+    }
+    .imageClass{
+        height:120px;width:120px;
+    }
+</style>
+<div class="row">
+
+    <!--Top buttons-->
+    <div class="col-md-12 margin-bottom-15">
+        <div class="col-md-12 clearfix">
+            <button id="btnBack" class="btn sbold green btnMargin" ng-click="goBack($event)">
+                <i class="fa fa-arrow-left"></i>
+                {{"ControlText.Back_title"|translate}}
+            </button>
+
+
+            <button id="btnDeleteClaims" class="btn sbold red btnMargin" ng-click="DeletItem($event)">
+                <i class="fa fa-remove"></i>
+                {{"ControlText.Delete_title"|translate}}
+            </button>
+
+
+            <button id="btnAssignClaim" class="btn sbold green btnMargin" ng-click="AssignClaimToAdjuster($event)">
+                <i class="fa fa-briefcase"></i>
+                {{"ControlText.Assign_title"|translate}}
+            </button>
+
+
+            <button id="btnValue" class="btn sbold green btnMargin" ng-click="openValueModel($event)">
+                <i class="fa fa-dollar"></i>
+                {{"ControlText.Value_title"|translate}}
+            </button>
+
+            <button id="btnPayout" class="btn sbold green btnMargin" ng-click="openItemPayoutModel($event)">
+                <i class="fa fa-credit-card"></i>
+                {{"ControlText.Payout_title"|translate}}
+            </button>
+
+            <button id="btnUpdate" class="btn sbold green btnMargin" ng-click="SaveClaimDetails($event)">
+                <i class="fa fa-pencil"></i>
+                {{"ControlText.Update_title"|translate}}
+            </button>
+        </div>
+    </div>
+    <!--End Top Buttons-->
+    <!--Item Name-->
+    <div class="col-md-12">
+        <div class="col-md-12">
+            <div class="col-md-12 clearfix portlet light bordered">
+
+                <div class="portlet-title col-md-12">
+                    <div class="caption col-md-10">
+
+                        <span class="caption-subject bold uppercase"> 1895 Marco Polo Canvas Painting</span>
+                    </div>
+
+                    <div class="form-group col-md-2 pull-right">
+                        <select class="input-small select2me" data-placeholder="Status">
+                            <option value="">Status</option>
+                            <option value="AL">Active</option>
+                            <option value="WY">Non - Active</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Item Name-->
+
+    <!--line item details-->
+    <div class="col-md-12">
+        <!--Item Details-->
+        <div class="col-md-7 col-sm-12">
+            <div class="col-md-12 text-center">
+                <h4 class="text-primary bold ">{{"HeaderText.OriginalItem"|translate}}</h4>
+            </div>
+            <div class="portlet light bordered">
+                <div class="portlet-title text-center">
+                    <div class="caption font-green text-center">
+                        <span class="caption-subject bold uppercase"> {{"HeaderText.LineItemDetails_title"|translate}}</span>
+                    </div>
+                    <button class="btn sbold btnMargin blue pull-right">
+                        <i class="fa fa-save"></i>
+                        {{"ControlText.Save_title"|translate}}
+                    </button>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="col-md-12">
+                                <div class="form-group col-md-6 clearfix">
+                                    <label class="control-label">{{"FormControlText.Status"|translate}}</label>
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.Status"|translate}}' />
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group col-md-6">
+                                    <label class="control-label">{{"FormControlText.ItemId"|translate}}</label>
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.ItemId"|translate}}' />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="control-label col-md-12 clearfix"> {{"FormControlText.ScheduledItem"|translate}}</label>
+                                    <div class="col-md-4">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio">{{"Radio.Yes"|translate}}
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio">{{"Radio.No"|translate}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">{{"FormControlText.PriceQuoted"|translate}}</label>
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.PriceQuoted"|translate}}' />
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label"> {{"FormControlText.Depreciation"|translate}}</label>
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.Depreciation"|translate}}' />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">{{"FormControlText.Category"|translate}}</label>
+                                    <select class="form-control select2me" ng-model="Category" data-placeholder="select" ng-change="bindSubCat()">
+
+                                        <option ng-repeat="item in CategoryList" value="items.categoryId">{{item.categoryName}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label"> {{"FormControlText.RCV"|translate}}</label>
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.RCV"|translate}}' />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label"> {{"FormControlText.SubCategory"|translate}}</label>
+                                    <select class="form-control col-md-2 select2me" ng-model="SubCategory" data-placeholder="select">
+                                        <option ng-repeat="item in SubCategoryList" value="items.id">{{item.name}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label"> {{"FormControlText.ACV"|translate}}</label>
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.ACV"|translate}}' />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label"> {{"FormControlText.Brand"|translate}}</label>
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.Brand"|translate}}' />
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">{{"FormControlText.TaxRate"|translate}}</label>
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.TaxRate"|translate}}' />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label"> {{"FormControlText.Model"|translate}}</label>
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.Model"|translate}}' />
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label"> {{"FormControlText.TotalTax"|translate}}</label>
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.TotalTax"|translate}}' />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">{{"FormControlText.YearOfManufacture"|translate}}</label>
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.YearOfManufacture"|translate}}' />
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label col-md-12 clearfix"> {{"FormControlText.Replaced"|translate}}</label>
+                                    <div class="col-md-4">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio">{{"Radio.Yes"|translate}}
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio">{{"Radio.No"|translate}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label"> {{"FormControlText.AssignedTo"|translate}}</label>
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.AssignedTo"|translate}}' />
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">{{"FormControlText.Holdover"|translate}}</label>
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.Holdover"|translate}}' />
+                                </div>
+                            </div>
+                            <!--<div class="col-md-12 form-group">
+                                <div class="col-md-2 text-left">
+                                    <label class="control-label">{{"FormControlText.ItemType"|translate}}</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.ItemType"|translate}}' />
+                                </div>
+
+                                <div class="col-md-2 text-left">
+                                    <label class="control-label">{{"FormControlText.InsuranceType"|translate}}</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="col-md-6">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio">{{"FormControlText.ACV"|translate}}
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio">{{"FormControlText.RCV"|translate}}
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                                <div class="col-md-2 text-left">
+                                    <label class="control-label"> {{"FormControlText.AssignedTo"|translate}}</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.AssignedTo"|translate}}' />
+                                </div>
+
+                                <div class="col-md-2 text-left">
+                                    <label class="control-label">{{"FormControlText.ValueOfItem"|translate}}</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.ValueOfItem"|translate}}' />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                                <div class="col-md-2 text-left">
+                                    <label class="control-label">{{"FormControlText.YearOfManufacture"|translate}}</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.YearOfManufacture"|translate}}' />
+                                </div>
+                                <div class="col-md-2 text-left">
+                                    <label class="control-label">{{"FormControlText.Holdover"|translate}}</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.Holdover"|translate}}' />
+                                </div>
+
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <div class="col-md-2 text-left">
+                                    <label class="control-label"> {{"FormControlText.ScheduledItem"|translate}}</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.Yes/No"|translate}}' />
+                                </div>
+
+                                <div class="col-md-2 text-left">
+                                    <label class="control-label">{{"FormControlText.PayoutMode"|translate}}</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="col-md-6">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio">{{"Radio.Check"|translate}}
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio">{{"Radio.DebitCard"|translate}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                                <div class="col-md-2 text-left">
+                                    <label class="control-label"> {{"FormControlText.PayoutCheck/DebitCardNo"|translate}}</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.PayoutCheck/DebitCardNo"|translate}}' />
+                                </div>
+
+                                <div class="col-md-2 text-left">
+                                    <label class="control-label">{{"FormControlText.DateOfPayment"|translate}}</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control datepicker" close-on-date-selection="true" data-provide="datepicker" size="16" type="text" placeholder='{{"FormControlText.DateOfPayment"|translate}}' name="Date" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                                <div class="col-md-2 text-left">
+                                    <label class="control-label"> {{"FormControlText.HoldoverCheck/DebitCardNo"|translate}}</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.HoldoverCheck/DebitCardNo"|translate}}' />
+                                </div>
+
+                                <div class="col-md-2 text-left">
+                                    <label class="control-label">{{"FormControlText.HoldoverPaymentDate"|translate}}</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control datepicker" close-on-date-selection="true" data-provide="datepicker" size="16" type="text" placeholder='{{"FormControlText.HoldoverPaymentDate"|translate}}' name="Date" />
+                                </div>
+                            </div>
+                            <div class="col-md-12 form-group">
+
+
+                                <div class="col-md-6 text-left pull-right text-right">
+                                    <label class="control-label"><a href="#">{{"FormControlText.VendorInvoice"|translate}}</a></label>
+                                </div>
+
+                            </div>-->
+                            <!--Text area-->
+                            <div class="col-md-12">
+                                <div class="col-md-12 form-group">
+                                    <label class="control-label"> {{"FormControlText.PolicyHolderDescription"|translate}}</label>
+                                    <textarea class="form-control" placeholder='{{"FormControlText.PolicyHolderDescription"|translate}}'></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="col-md-12 form-group">
+                                    <label class="control-label"> {{"FormControlText.AdjusterDescription"|translate}}</label>
+                                    <textarea class="form-control" placeholder='{{"FormControlText.AdjusterDescription"|translate}}'></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label"> {{"FormControlText.DateOfPayment"|translate}}</label>
+                                    <input type="text" class="col-md-12 form-control" placeholder='{{"FormControlText.DateOfPayment"|translate}}' />
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label col-md-12"></label>
+                                    <label class="control-label pull-right"><a href="#">{{"FormControlText.ReplacementReceipt"|translate}}</a> </label>
+                                    <label class="control-label pull-right"><a href="#">{{"FormControlText.VendorInvoice"|translate}}</a> </label>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Image Div-->
+                        <div class="col-md-3 itemImageScrollableDiv">
+                            <div class="col-md-12 portlet light bordered" ng-repeat="img in images">
+
+                                <img class="img-thumbnail" src="../assets/pages/img/avatars/team1.jpg" alt="image" height="100px;" width="100px;" />
+
+                            </div>
+                        </div>
+                        <!--End Image IDv-->
+                    </div>
+                </div>
+            </div>
+
+            <!--Notes-->
+                <div class="portlet light bordered col-md-12">
+                    <div class="portlet-title">
+                        <div class="caption font-green">
+                            <span class="caption-subject bold uppercase"> {{"HeaderText.LineItemNotes_title"|translate}}</span>
+                        </div>
+                        <div class="tools">
+                            <a href="" class="fullscreen"> </a>
+
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-12" style="height:150px;overflow:auto;">
+                                <div class="col-md-12 padding-tb-10" ng-repeat="note in Notes">
+                                    <div class="col-md-4">
+                                        <img src="../assets/pages/img/avatars/team1.jpg" alt="image" class="img-thumbnail imageClass" /><br />
+                                        <span class="pull-left text-success">{{note.senderName}}</span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <!--<span class="col-md-12 pull-left font-red-flamingo">Headline/Status/Notification</span>-->
+                                        <textarea class="col-md-12 pull-left form-control" placeholder="Multiline Text Area">{{note.message}}</textarea>
+                                        <br />
+                                        <span class="col-md-12 pull-left text-success">{{note.date}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portlet">
+                            <div class="portlet-title">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4" style="display:flex;">
+
+                                <div class="input-icon left margin-top-15">
+                                    <i class="icon-magnifier"></i>
+                                    <input type="text" class="form-control form-control-solid input-circle input-block-level btnMargin" ng-model="search" placeholder={{"ParticipantSearchText"|translate}}>
+                                </div>
+                                <span style="line-height: 75px; margin-left:10px;">
+                                    <i class="fa fa-paperclip fa-2x"></i>
+                                </span>
+                            </div>
+                            <div class="col-md-8 margin-top-10">
+                                <textarea class="form-control input-block-level" placeholder="Multiline Text Area"></textarea>
+                            </div>
+                            <div class="col-md-12 margin-top-10">
+                                <button class="btn sbold btnMargin blue pull-right" ng-click="AddNote($event)">
+                                    <i class="fa fa-plus"></i>
+                                    {{"ControlText.AddNote_title"|translate}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!--End Notes-->
+
+        </div>
+        <!--End Item Details-->
+        <!--Comparables-->
+        <div class="col-md-5 col-sm-12" ng-if="displaycomparables" style="height:1037px;">
+            <div class="col-md-12 text-center">
+                <h4 class="text-primary bold ">{{"HeaderText.Comparables"|translate}}</h4>
+            </div>
+            <div class="portlet light bordered">
+                <div class="portlet-title text-center">
+                    <div class="caption font-green text-center">
+                        <span class="caption-subject bold uppercase"> {{"HeaderText.ComparableDetails"|translate}}</span>
+                    </div>
+                    <button class="btn sbold btnMargin blue pull-right">
+                        <i class="fa fa-save"></i>
+                        {{"ControlText.Done_title"|translate}}
+                    </button>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-10">
+                            <div class="input-icon left">
+                                <i class="icon-magnifier"></i>
+                                <input type="text" ng-model="SearchComparables" ng-blur="SearchReplacement()" class="form-control form-control-solid input-circle input-block-level" placeholder={{"ComparablesSearch"|translate}}>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 clearfix margin-top-10 comparablesDiv" style="margin:0px;">
+                            <div class="col-md-12 portlet light bordered  margin-top-10" ng-repeat="comp in Comparables">
+
+                                <div class="col-md-4 col-sm-12 margin-top-20">
+                                    <img class="img-thumbnail imageClass img-responsive" src="../assets/pages/img/avatars/team1.jpg" alt="image" />
+                                </div>
+                                <div class="col-md-8 col-sm-12 form-group">
+                                
+                                        <label class="control-label clearfix">{{"FormControlText.ItemId"|translate}}</label>
+                                        <input type="text" class="form-control" placeholder='{{"FormControlText.ItemId"|translate}}' />
+                                 <br />
+                                  
+                                        <label class="control-label clearfix">{{"FormControlText.VendorDescription"|translate}}</label>
+                                        <textarea class="form-control" placeholder='{{"FormControlText.VendorDescription"|translate}}'></textarea>
+                                    
+                                </div>
+
+
+                                <div class="col-md-12 form-group">
+                                    <label class="control-label">{{"FormControlText.UnitPrice"|translate}}</label>
+                                    <input type="text" class="form-control" placeholder='{{"FormControlText.UnitPrice"|translate}}' />
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="control-label">{{"FormControlText.TaxRate"|translate}}</label>
+                                    <input type="text" class="form-control" placeholder='{{"FormControlText.TaxRate"|translate}}' />
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                    <label class="control-label">{{"FormControlText.ItemType"|translate}}</label>
+                                    <input type="text" class="form-control" placeholder='{{"FormControlText.ItemType"|translate}}' />
+                                </div>
+
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                    <label class="control-label">{{"FormControlText.Brand"|translate}}</label>
+                                    <input type="text" class="form-control" placeholder='{{"FormControlText.Brand"|translate}}' />
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                    <label class="control-label">{{"FormControlText.Model"|translate}}</label>
+                                    <input type="text" class="form-control" placeholder='{{"FormControlText.Model"|translate}}' />
+                                </div>
+                                <div class="col-md-12 col-sm-6 col-xs-12 form-group">
+                                    <label class="control-label">{{"FormControlText.Supplier"|translate}}</label>
+                                    <input type="text" class="form-control" placeholder='{{"FormControlText.Supplier"|translate}}' />
+                                </div>
+
+
+                                <div class="col-md-12 form-group">
+                                    <label class="col-md-12 mt-checkbox mt-checkbox-outline font-red-flamingo text-danger">
+                                        <input type="checkbox" class="checkboxes" />
+                                        <span></span>{{"FormControlText.MarkReplacementItem"|translate}}
+                                    </label>
+                                </div>
+                                <div class="col-md-12 form-group text-center">
+                                    <a href="#">{{"FormControlText.BuyViewHere"|translate}}</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Comparables-->
+      
+        <!--Search Comparables-->
+        <div class="col-md-5 col-sm-12" ng-if="displayReplacement">
+            <div class="portlet light bordered" style="height:1037px;">
+                <div class="portlet-title text-center">
+                    <div class="caption font-green text-center">
+                        <span class="caption-subject bold uppercase"> {{"HeaderText.SearchComparables"|translate}}</span>
+                    </div>
+                    <button class="btn sbold btnMargin blue pull-right" ng-click="AddReplacement()">
+                        <i class="fa fa-save"></i>
+                        {{"ControlText.Save_title"|translate}}
+                    </button>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12 margin-bottom-10">
+                            <div class="col-md-3">
+                                <select class="form-control" data-placeholder="Status">
+                                    <option value="1">Cat-1</option>
+                                    <option value="">Cat-2</option>
+                                    <option value="">Cat-3</option>
+                                </select>
+                            </div>
+                            <div class="col-md-offset-1 col-md-8">
+                                <div class="input-icon left">
+                                    <i class="icon-magnifier"></i>
+                                    <input type="text" class="form-control form-control-solid input-circle input-block-level" ng-model="search" placeholder="1895 MARCO POLO CANVAS PAINTING">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <div class="col-md-offset-4 col-md-3 text-right text-primary">
+                                <label class="col-md-12">{{"ControlText.SortBy"|translate}}</label>
+                            </div>
+                            <div class="col-md-5">
+                                <select class="form-control col-md-12" data-placeholder="Option" ng-model="sortcolumn">
+                                    <option ng-repeat="option in SortOptions" value="{{option.Id}}">{{option.Value}}</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12 table-responsive">
+                            <table class="col-md-12 table-hover table-striped">
+                                <tr class="col-md-12 block thumbnail" dir-paginate="comparable in comparableList|filter:search|orderBy:sortcolumn|itemsPerPage:6">
+                                    <td class="col-md-4">
+                                        <img ng-src="{{comparable.image}}" class="img-thumbnail img-responsive" height="100px" width="100px" />
+                                    </td>
+                                    <td class="col-md-4">
+                                        <ul class="text-muted" style="list-style-type:none;" data-ng-repeat="details in comparable.details">
+                                            <li>{{details.BrandName}}</li>
+                                            <li>{{details.Model}}</li>
+                                            <li>{{details.Price}}</li>
+                                            <li>{{details.Description}}</li>
+                                            <li><a herf="#">Buy / View Here.</a></li>
+                                        </ul>
+
+                                    </td>
+                                    <td class="col-md-4">
+                                        <label class="col-md-12 mt-checkbox mt-checkbox-outline text-danger">
+                                            <input type="checkbox" class="checkboxes form-control" />
+                                            <span></span>Add To Comparables
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div ng-show="!comparableList.length" class="col-md-12 text-center text-danger">No Records available</div>
+                            <dir-pagination-controls max-size="3"
+                                                     direction-links="true"
+                                                     boundary-links="true" class="pull-right">
+                            </dir-pagination-controls>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Search Comparables-->
+
+
+        <!--Added Comparables-->
+        <div class="col-md-5 pull-left" ng-if="displayAddedComparables">
+            <div class="portlet light bordered">
+                <div class="portlet-title text-center">
+                    <div class="caption font-green text-center">
+                        <span class="caption-subject bold uppercase"> {{"HeaderText.AddedComparables"|translate}}</span>
+                    </div>
+                    <div class="tools">
+                        <a href="#" class="fullscreen"></a>
+                    </div>
+                </div>
+                    <div class="portlet-body responsive" style="height:40%;">
+                        <div class="row">
+                          
+                                <div class="col-md-12" style="display:flex;">
+
+                                    <div class="col-md-2 text-center">
+                                 <!--<img src="../../assets/layouts/layout4/img/ArrowPrev.png" class="btnNextPrevoius" height="80px" width="80px" />-->
+                                        <span class="fa fa-arrow-circle-left fa-2x"></span>
+                                    </div>
+
+                                    <!--Div Scrollable-->
+                                    <div class="col-md-8 portlet light bordered imageDivScrollable">
+                                        <div style="display:flex">
+                                            <div class="col-md-12" style="display:flex">
+                                                <div style="max-width:150px;" class="ImageContainer">
+                                                    <div class="col-md-12">
+                                                        <img src="../assets/pages/img/avatars/team1.jpg" alt="img" class="img-thumbnail img-responsive" height="150px;" width="150px;" />
+                                                    </div>
+
+                                                    <label class="col-md-12 pull-left text-primary">Image-1</label>
+
+                                                    <div class="col-md-12">
+                                                        <label class="col-md-12 mt-checkbox mt-checkbox-outline font-red-flamingo" style="font-size:11px;">
+                                                            <input type="checkbox" class="checkboxes" />
+                                                            <span></span>Add To Comparables
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <a>{{"ControlText.BuyView_title"|translate}}</a>
+                                                    </div>
+                                                </div>
+                                                <div style="max-width:150px;" class="ImageContainer">
+                                                    <div class="col-md-12">
+                                                        <img src="../assets/pages/img/avatars/team1.jpg" alt="img" class="img-thumbnail img-responsive" height="150px;" width="150px;" />
+                                                    </div>
+
+                                                    <label class="col-md-12 pull-left text-primary">Image-1</label>
+
+                                                    <div class="col-md-12">
+                                                        <label class="col-md-12 mt-checkbox mt-checkbox-outline font-red-flamingo" style="font-size:11px;">
+                                                            <input type="checkbox" class="checkboxes" />
+                                                            <span></span>Add To Comparables
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <a>{{"ControlText.BuyView_title"|translate}}</a>
+                                                    </div>
+                                                </div>
+                                                <div style="max-width:150px;" class="ImageContainer">
+                                                    <div class="col-md-12">
+                                                        <img src="../assets/pages/img/avatars/team1.jpg" alt="img" class="img-thumbnail img-responsive" height="150px;" width="150px;" />
+                                                    </div>
+
+                                                    <label class="col-md-12 pull-left text-primary">Image-1</label>
+
+                                                    <div class="col-md-12">
+                                                        <label class="col-md-12 mt-checkbox mt-checkbox-outline font-red-flamingo" style="font-size:11px;">
+                                                            <input type="checkbox" class="checkboxes" />
+                                                            <span></span>Add To Comparables
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <a>{{"ControlText.BuyView_title"|translate}}</a>
+                                                    </div>
+                                                </div>
+                                                <div style="max-width:150px" class="ImageContainer">
+                                                    <div class="col-md-12">
+                                                        <img src="../assets/pages/img/avatars/team1.jpg" alt="img" class="img-thumbnail img-responsive" height="150px;" width="150px;" />
+                                                    </div>
+
+                                                    <label class="col-md-12 pull-left text-primary">Image-1</label>
+
+                                                    <div class="col-md-12">
+                                                        <label class="col-md-12 mt-checkbox mt-checkbox-outline font-red-flamingo" style="font-size:11px;">
+                                                            <input type="checkbox" class="checkboxes" />
+                                                            <span></span>Add To Comparables
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <a>{{"ControlText.BuyView_title"|translate}}</a>
+                                                    </div>
+                                                </div>
+                                                <div style="max-width:150px;" class="ImageContainer">
+                                                    <div class="col-md-12">
+                                                        <img src="../assets/pages/img/avatars/team1.jpg" alt="img" class="img-thumbnail img-responsive" height="150px;" width="150px;" />
+                                                    </div>
+
+                                                    <label class="col-md-12 pull-left text-primary">Image-1</label>
+
+                                                    <div class="col-md-12">
+                                                        <label class="col-md-12 mt-checkbox mt-checkbox-outline font-red-flamingo" style="font-size:11px;">
+                                                            <input type="checkbox" class="checkboxes" />
+                                                            <span></span>Add To Comparables
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <a>{{"ControlText.BuyView_title"|translate}}</a>
+                                                    </div>
+                                                </div>
+                                                <div style="max-width:150px;" class="ImageContainer">
+                                                    <div class="col-md-12">
+                                                        <img src="../assets/pages/img/avatars/team1.jpg" alt="img" class="img-thumbnail img-responsive" height="150px;" width="150px;" />
+                                                    </div>
+
+                                                    <label class="col-md-12 pull-left text-primary">Image-1</label>
+
+                                                    <div class="col-md-12">
+                                                        <label class="col-md-12 mt-checkbox mt-checkbox-outline font-red-flamingo" style="font-size:11px;">
+                                                            <input type="checkbox" class="checkboxes" />
+                                                            <span></span>Add To Comparables
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <a>{{"ControlText.BuyView_title"|translate}}</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--End Div Scrollable-->
+                                    <div class="col-md-2 text-center">
+                                        <span class="fa fa-arrow-circle-right fa-2x"></span>
+                                        <!--<img src="../../assets/layouts/layout4/img/ArrowNext.png" class="btnNextPrevoius" height="80px" width="80px" />-->
+                                    </div>
+
+                                </div>
+                         
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <!--End Added Comparables-->
+    </div>         
+  
+</div>
+

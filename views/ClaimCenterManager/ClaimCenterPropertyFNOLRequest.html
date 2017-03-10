@@ -1,0 +1,615 @@
+﻿
+<div class="row">
+    <!----Top Buttons-->
+    <div class="col-md-12">
+        <div class="col-md-12 margin-bottom-15">
+
+            <button id="btnBack" class="btn sbold green btnMargin" ng-click="GoBack()">
+                <i class="fa fa-arrow-left"></i>
+                {{"ControlText.Back"|translate}}
+            </button>
+            <button id="btnAssignClaims" class="btn sbold green btnMargin" ng-disabled="DisableAssignbtn " ng-click="AssignClaimToAdjuster($event)">
+                <i class="fa fa-briefcase"></i>
+                {{"ControlText.Assign"|translate}}
+            </button>
+            <button id="btnSave" class="btn sbold green btnMargin" ng-click="SaveClaimReportDetails($event)">
+                <i class="fa fa-save"></i>
+                {{"ControlText.Save"|translate}}
+            </button>
+        </div>
+        <!----End Top Buttons-->
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-green-sharp">
+                        <span class="caption-subject bold uppercase">{{'MainHeader.ClaimInformation'|translate}} </span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12 " style="color: #fff; background-color: #337ab7;padding: 10px 15px;"><span class="caption-subject bold uppercase">{{'MainHeader.PolicyDetails'|translate}} </span></div>
+                        <div class="col-md-12 margin-bottom-15"></div>
+                        <div class="col-md-12">
+                            <div class="col-md-12 form-group clearfix">
+                                <label class="col-md-2 control-label">{{"Label.Policy#"|translate}}</label>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" ng-model="PolicyDetails.policyNumber" placeholder="{{'Label.Policy#'|translate}}">
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn sbold green btnMargin" ng-click="GetPolicyDetails()">
+
+                                        {{"ControlText.GO"|translate}} <!--<i class="fa fa-arrow-right"></i>-->
+
+                                    </button>
+                                </div>
+                                <label class="col-md-4 control-label text-danger"><b>{{PolicyExists}}</b></label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-12 form-group">
+                                <label class="col-md-2  control-label">{{"Label.ReportDate"|translate}} </label>
+                                <div class="col-md-3">
+                                    <!--<input class="form-control datepicker" close-on-date-selection="true" readonly ng-model="PolicyDetails.dt " data-provide="datepicker" size="16" type="text" placeholder="{{'Label.ReportDate'|translate}}" name="Date" />-->
+                                    <label class="form-control" >{{PolicyDetails.reportDate | date:'dd-MM-yyyy '}}</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="col-md-12 form-group">
+                                <label class="col-md-2 control-label">{{"Label.PolicyType"|translate}}</label>
+                                <div class="col-md-3">
+                                    <select class="input-sm select2me" ng-model="PolicyDetails.policyType" data-placeholder="Select Policy Type">
+                                        <option value="HOME">Property</option>
+                                        <option value="AUTO">Auto</option>
+                                    </select>
+                                </div>
+                                <label class="col-md-2 control-label col-md-offset-2">{{"Label.HomePoliceType"|translate}}</label>
+                                <div class="col-md-3">
+                                    <select class="input-sm select2me" ng-model="PolicyDetails.homeOwnerPolicyTypeId" data-placeholder="Select Policy Type">
+                                        <option ng-repeat="policy in DdlSourcePolicyType" value="{{policy.id}}">{{policy.typeName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="col-md-12 form-group  clearfix">
+                                <label class="col-md-2 control-label">{{"Label.PolicyCoverage"|translate}} </label>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" ng-model="PolicyDetails.policyCoverage" placeholder="{{'Label.PolicyCoverage'|translate}}">
+                                </div>
+                                <label class="col-md-2 col-md-offset-2 control-label">{{"Label.SpecialLimit"|translate}}</label>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" ng-model="PolicyDetails.specialLimits" placeholder="{{'Label.SpecialLimit'|translate}}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="col-md-12 form-group  clearfix">
+                                <label class="col-md-2 control-label">{{"Label.AggregateCoverage"|translate}} </label>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" ng-model="PolicyDetails.aggregateCoverage" placeholder="{{'Label.AggregateCoverage'|translate}}">
+                                </div>
+                                <label class="col-md-2 col-md-offset-2 control-label">{{"Label.Deductible"|translate}}</label>
+                                <div class="col-md-3">
+                                    <input type="text" ng-model="PolicyDetails.detuctables" class="form-control" placeholder="{{'Label.Deductible'|translate}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 " style="color: #fff; background-color: #337ab7;padding: 10px 15px;"><span class="caption-subject bold uppercase">{{'MainHeader.ContactInformation'|translate}} </span></div>
+                        <div class="col-md-12 margin-bottom-20"></div>
+                        <div class="col-md-12">
+                            <div class="col-md-12 form-group">
+                                <label class="col-md-2  control-label">{{"Label.Frstname"|translate}}</label>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" ng-model="PolicyDetails.policyHolder.firstName" placeholder="{{'Label.Frstname'|translate}}">
+                                </div>
+                                <label class="col-md-2 col-md-offset-2 control-label">{{"Label.LstName"|translate}}</label>
+                                <div class="col-md-3">
+                                    <input type="text" ng-model="PolicyDetails.policyHolder.lastName" class="form-control" placeholder="{{'Label.LstName'|translate}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group col-md-12  clearfix">
+                                <label class="col-md-2 control-label">{{"Label.DayPhone"|translate}}</label>
+                                <div class="col-md-1"><input type="text" class="form-control" ng-model="DayPhoneFirst" ng-maxlength="4"></div>
+                                <div class="col-md-1"><input type="text" class="form-control" ng-model="DayPhoneSecond" ng-maxlength="4"></div>
+                                <div class="col-md-1"><input type="text" class="form-control" ng-model="DayPhoneThird" ng-maxlength="4"></div>
+                                <!--<div class="col-md-3">
+                                    <input type="text" class="form-control" ng-model="PolicyDetails.policyHolder.homePhoneNumber" placeholder="{{'Label.DayPhone'|translate}}">
+                                </div>-->
+                                <label class="col-md-2 col-md-offset-2 control-label">{{"Label.EveningPhone"|translate}}</label>
+                                <!--<div class="col-md-3">
+                                    <input type="text" class="form-control" ng-model="PolicyDetails.policyHolder." placeholder="{{'Label.EveningPhone'|translate}}">
+                                </div>-->
+                                <div class="col-md-1 "><input type="text" class="form-control" ng-model="EveningPhoneFirst" ng-maxlength="4"></div>
+                                <div class="col-md-1 "><input type="text" class="form-control" ng-model="EveningPhoneSecond" ng-maxlength="4"></div>
+                                <div class="col-md-1 "><input type="text" class="form-control" ng-model="EveningPhoneThird" ng-maxlength="4"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group col-md-12 clearfix">
+                                <label class="col-md-2 control-label">{{"Label.CellPhone"|translate}}</label>
+                                <div class="col-md-1 "><input type="text" class="form-control " ng-maxlength="4" ng-model="CellPhoneFirst"></div>
+                                <div class="col-md-1 "><input type="text" class="form-control " ng-maxlength="4" ng-model="CellPhoneSecond"></div>
+                                <div class="col-md-1  "><input type="text" class="form-control " ng-maxlength="4" ng-model="CellPhoneThird"></div>
+                                <!--<div class="col-md-3">
+                                    <input type="text" class="form-control" ng-model="PolicyDetails.policyHolder.personalPhoneNumber" placeholder="{{'Label.CellPhone'|translate}}">
+                                </div>-->
+                                <label class="col-md-2 col-md-offset-2  control-label">{{"Label.Mail"|translate}}</label>
+                                <div class="col-md-3">
+                                    <input type="text" ng-model="PolicyDetails.policyHolder.email" class="form-control" placeholder="{{'Label.Mail'|translate}}" ng-blur="GetPolicyHolderInfo()">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group col-md-12 clearfix">
+                                <label class="col-md-2 control-label">{{"Label.Address"|translate}}</label>
+                                <div class="col-md-5">
+                                    <textarea rows="2" class="form-control " ng-model="PolicyDetails.policyHolder.address.streetAddressOne" ng-attr-placeholder="{{'Label.Streetadd1'|translate}}"></textarea>
+                                </div>
+                                <div class="col-md-5">
+                                    <textarea rows="2" class="form-control " ng-model="PolicyDetails.policyHolder.address.streetAddressTwo" ng-attr-placeholder="{{'Label.Streetadd2'|translate}}"></textarea>
+                                </div>
+                                <div class="clearfix form-group "></div>
+                                <div class="col-md-5 col-md-offset-2 ">
+                                    <input type="text" class="form-control" ng-model="PolicyDetails.policyHolder.address.city" placeholder="{{'Label.City/town'|translate}}">
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="input-sm select2me" data-placeholder="Select State" ng-model="PolicyDetails.policyHolder.address.state.id">
+                                        <option ng-repeat="state in DdlStateList" ng-selected="state.id===PolicyDetails.policyHolder.address.state.id" value="{{state.id}}">{{state.state}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control" ng-model="PolicyDetails.policyHolder.address.zipcode" placeholder="{{'Label.Zip'|translate}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-12 form-group  clearfix">
+                                <div class="col-md-12 margin-top-10">
+                                    <button id="btnSave" class="btn sbold green btnMargin pull-right" ng-show="CreatePolicybutton" ng-click="createPolicy()">
+                                        <i class="fa fa-save"></i>
+                                        {{"ControlText.CreatePolicy"|translate}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-12">
+            <div class="portlet light bordered ">
+                <div class="portlet-title">
+                    <div class="caption font-green-sharp">
+                        <span class="caption-subject bold uppercase">{{"MainHeader.ClaimDetails"|translate}}</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12 form-group clearfix">
+                                <label class="col-md-2 control-label">{{"Label.Claim#"|translate}}</label>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" ng-model="claimDetails.claimNumber" placeholder="{{'Label.Claim#'|translate}}">
+                                </div>
+                                <label class="col-md-2 col-md-offset-2 control-label">{{"Label.TaxRate"|translate}}</label>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" ng-model="claimDetails.taxRate" placeholder="{{'Label.TaxRate'|translate}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group col-md-12 ">                               
+                                    <label class="control-label col-md-2">{{"Label.ClaimType"|translate}}</label>
+                                    <div class="col-md-3 ">                                       
+                                            <select class="input-sm select2me" data-placeholder="Select Claim Type" ng-model="PolicyDetails.claimType">
+                                                <option value="Home">Home</option>
+                                                <option value="AUTO">Auto</option>
+                                            </select>
+                                    </div>                               
+                                <label class="col-md-2 col-md-offset-2  control-label"><b>Replacement Option</b></label><div class="col-md-3">
+                                    <label class="mt-radio mt-radio-outline mt-radio-single ">
+                                        <input type="radio" class="group-checkable" name="injured" ng-model="claimDetails.isACV" value="true" />
+                                        ACV<span></span>
+                                    </label>&nbsp;&nbsp;
+                                    <label class="mt-radio mt-radio-outline mt-radio-single ">
+                                        <input type="radio" class="group-checkable" name="injured" ng-model="claimDetails.isRCV" value="true" />
+                                        <span></span>RCV
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12" >
+                            <div class="col-md-12 form-group clearfix">
+                                <label class="col-md-2 control-label">{{"Label.ItemCategory"|translate}}</label>
+                                <div class="col-md-3">
+                                    <select class="input-sm select2me" ng-model="CommonObject.ItemCategoryId" ng-change="CreateItemList()" data-placeholder="Select Item Category">
+                                        <option ng-repeat="category in DdlClaimCategoryWithCovers" value="{{category.categoryId}}">{{category.categoryName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="portlet ">
+                                <div class="portlet-title">
+                                </div>
+                            </div>
+                            <div class="col-md-6 form-group  " ng-repeat="item in ClaimCategoryWithCovers">
+                                <label class="col-md-4 control-label">{{item.categoryName}}</label>
+                                <div style=""></div>
+                                <div class="col-md-7 ">
+                                    <input type="text" class="form-control" ng-model="item.coverageLimit" placeholder="{{'Label.coveragelimit'|translate}}">
+                                </div>
+                                <div class="col-md-1">
+                                    <a href="" class="fa fa-close " style="color:black;text-decoration:none;margin-top: 7px;" ng-click="DeleteItemCategory(item)"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group col-md-12">
+                                <label class="control-label col-md-12">{{"Label.AddNote"|translate}}</label>
+                                <div class="col-md-12">
+                                    <textarea rows="4" class="form-control" ng-attr-placeholder="{{'Label.AddNote'|translate}}" ng-model="claimDetails.claimNote"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Reoprt Detilas  -->
+        <div class="clearfix"></div>
+        <div class="col-md-12">
+            <div class="portlet light bordered ">
+                <div class="portlet-title">
+                    <div class="caption font-green-sharp">
+                        <span class="caption-subject bold uppercase">{{'MainHeader.tabRportDetails'|translate}}</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <!-- Report Details Question -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <label class="control-label col-md-4 text-primary text-left">{{"Label.DamageTypes"|translate}}</label>
+                                <div class="col-md-8">
+                                    <select class="input-small select2me btnMargin"  data-placeholder="Select..." ng-model="claimDetails.damageTypeId" ng-change="SetQuestionForDamageType()">
+                                        <option value="{{item.id}}" ng-repeat="item in DamageTypesList">{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--<div class="clearfix"></div>-->                          
+                            <div class="form-group col-md-6 clearfix">
+                                    <label class="col-md-7 control-label text-primary text-right">{{"Label.IncidentOccur"|translate}}</label>
+                                    <div class="col-md-5">
+                                        <input class="form-control datepicker" ng-model="PolicyDetails.incidentDate" data-provide="datepicker" size="16" type="text" placeholder="{{'Label.DateofIncident'|translate}} " name="Date" />
+                                    </div>
+                               
+                            </div>                         
+                            <div class="portlet  ">
+                                <div class="portlet-title">
+                                </div>
+                            </div>
+                            <div class="col-md-7 "> 
+                                <label class="col-md-12 control-label">{{"Label.DetailReport"|translate}}</label>
+                                <div class="form-group col-md-12 clearfix">
+                                    <textarea rows="4" class="form-control " ng-model="PolicyDetails.incidentDescription" ng-attr-placeholder="{{'Label.ReportDesc'|translate}}"></textarea>
+                                </div>
+                                                              
+                                <div class="form-group  clearfix" ng-repeat="question in QuestionList |orderBy:'order'" ng-if="question.type!=='IMAGE'">                                   
+                                    <label class="col-md-12 control-label">{{question.question}}</label>
+                                    <div class="col-md-8 " ng-show="question.type==='SELECT'">
+                                        <select class="select2-choice btnMargin form-control" data-placeholder="Select..." ng-model="question.answer">
+                                            <option value="{{ans.id}}" ng-repeat="ans in question.answers">{{ans.answer}}</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-8" ng-if="question.type==='TEXT'">
+                                        <textarea rows="2" class="form-control " ng-model="question.answer" ng-attr-placeholder="{{'Label.ReportDesc'|translate}}"></textarea>
+                                    </div>
+
+                                    <div class="col-md-4" ng-if="question.type==='DATE'">
+                                        <input class="form-control datepicker" ng-model="question.answer" data-provide="datepicker" size="16" type="text" name="Date" />
+                                    </div>
+
+                                    <div class="input-group form-group col-md-8" ng-if="question.type==='BOOLEAN'" >
+                                        <div class="col-md-12">
+                                            <div class="icheck-inline">
+                                                <label class="mt-radio mt-radio-outline mt-radio-single ">
+                                                    <input type="radio" class="group-checkable" name="{{$index}}" ng-model="question.answer"
+                                                           value="TRUE" />
+                                                    {{"ControlText.rdoYes"|translate}}<span></span>
+                                                </label>
+                                                <label class="mt-radio mt-radio-outline mt-radio-single ">
+                                                    <input type="radio" class="group-checkable" name="{{$index}}" ng-model="question.answer"
+                                                           value="FALSE" />
+                                                    <span></span>{{"ControlText.rdoNo"|translate}}
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  
+                              </div>
+                                
+                            </div>
+                            <div class="col-md-5">
+                                <div class="col-md-12">
+                                    <label class="control-label"><b>{{"Label.Picture"|translate}}</b></label>
+                                    <div class="col-md-12 form-group">
+                                        <div class="fileinput fileinput-new col-md-12" style="display:flex;" data-provides="fileinput">
+                                            <div class="uneditable-input   col-md-8 col-sm-6 col-lg-6 col-xs-6 "  data-trigger="fileinput">
+                                                <i class="fa fa-file fileinput-exists"></i>
+                                                <span class="fileinput-filename"> </span>
+                                            </div>
+                                            <span class="btn default btn-file col-md-3">
+                                                <span class="fileinput-new "> Select file </span>
+                                                <span class="fileinput-exists"> Change </span>
+                                                <input type="file" name="..." class="green" >
+                                            </span>
+                                            <!--Functon to call onchange="angular.element(this).scope().uploadImage(event)"-->
+                                            <!--<a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Remove  </a>-->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-6 margin-bottom-10" ng-repeat="item in IncidentImages">
+                                            <img ng-src="{{item}}" alt="Pictures of the incident" class="img-thumbnail" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Lost Damage Item -->
+        <div class="clearfix"></div>
+        <div class="col-md-12  ">
+            <div class="col-md-12 portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-green-sharp">
+                        <span class="caption-subject bold uppercase">{{"MainHeader.TableContenetDamage"|translate}}</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 margin-bottom-25">
+                    <div class="col-md-12">
+                        <button class="btn sbold green btnMargin ">
+                            <i class="fa fa-folder"></i>
+                            {{"ControlText.LoadFromFile"|translate}}
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-12 margin-bottom-10">
+
+                    <label class="control-label col-md-1 text-primary col-md-offset-4">{{"Label.ddlView"|translate}}</label>
+                    <div class="col-md-3">
+                        <select class="input-small select2me btnMargin" data-placeholder="Select..." ng-model="CommonObject.SearchItemCategory" ng-change="FilterLostDamageItems()">
+                           <option value="ALL">ALL</option>
+                             <option value="{{itemCategory.categoryName}}" ng-repeat="itemCategory in DdlItemCatregoryList">{{itemCategory.categoryName}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="input-icon left">
+                            <i class="icon-magnifier"></i>
+                            <input type="text" ng-model="search" class="form-control form-control-solid input-circle input-block-level btnMargin" placeholder="{{'Label.search'|translate}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="padding-top-10px table-responsive ">                   
+                    <table class="table  table-striped table-bordered table-hover table-checkable order-column" id="sample_5">
+                        <thead>
+                            <tr>
+                                <th class="table-checkbox" >
+                                    <a class="TextDecorationNone" ng-click="AddNewItemToList()">
+                                        <i class="fa fa-plus-circle fa-2x text-success"></i>
+                                    </a>
+                                </th>
+                                <td ng-click="sort('ItemName')">
+                                    {{"Table.ItemName_Title"|translate}}
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='ItemName'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                </td>
+                                <td ng-click="sort('ScheduledItem')">
+                                    {{"Table.ScheduledItem"|translate}}
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='ScheduledItem'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                </td>
+                                <td ng-click="sort('Brand')">
+                                    {{"Table.Brand"|translate}}
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='Brand'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                    </td>
+                                <td ng-click="sort('Model')">
+                                    {{"Table.Model"|translate}}
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='Model'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                </td>
+                                <td ng-click="sort('Category')">
+                                    {{"Table.Category"|translate}}
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='Category'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                </td>
+                                <td ng-click="sort('SubCategory')">
+                                    {{"Table.Sub-Category"|translate}}
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='SubCategory'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                </td>
+                                <td ng-click="sort('Age')">
+                                    {{"Table.Age"|translate}}
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='Age'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                </td>
+                                <td ng-click="sort('Description')">
+                                    {{"Table.Description"|translate}}
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='Depreciation'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                </td>
+                                <td ng-click="sort('InsuredValue')">
+                                    {{"Table.InsuredValue(Price)"|translate}}
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='InsuredValue'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                </td>
+                                <td ng-click="sort('Status')">
+                                    {{"Table.Status"|translate}}
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='Status'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                </td>                              
+                                <td>
+                                    {{"Table.Action"|translate}}
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-if="AddNewItem">
+                                <!-- call when need to cancel add new item CancelAddNewItem -->
+                                <td>
+                                    <!--<label class="mt-radio mt-radio-single mt-radio-outline"><input type="radio" class="radio" name="EditId"/><span></span></label>-->
+                                    <!--<a style="text-decoration:none;color:black;" class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></a>-->
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control setwidth" ng-model="selected.itemName" placeholder="{{'Table.ItemName_Title'|translate}}">
+                                </td>
+                                <td>
+                                    <select class="input-small select2me form-control  " data-placeholder="Select..." ng-model="selected.scheduled">
+                                        <option value="true" ng-selected="selected.scheduled">Yes</option>
+                                        <option value="false" ng-selected="!selected.scheduled">No</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control " ng-model="selected.brand" placeholder="{{'Table.Brand'|translate}}">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control " ng-model="selected.model" placeholder="{{'Table.Model'|translate}}">
+                                </td>
+                                <td>
+                                    <select class="input-small select2me form-control " data-placeholder="Select..." ng-model="selected.categoryId" ng-change="GetSubCategory()">
+                                        <option value="{{Cat.categoryId}}" ng-repeat="Cat in CategoryList  ">{{Cat.categoryName}}</option>
+                                    </select>
+                                </td>
+                                <td>                                   
+                                    <select class="input-small select2me form-control  " data-placeholder="Select..." ng-model="selected.subCategoryId">
+                                        <option value="{{subCat.id}}" ng-repeat="subCat in SubCategory">{{subCat.name}}</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control " ng-model="selected.age" placeholder="{{'Table.Age'|translate}}">
+                                </td>
+                                <td>
+                                    <textarea type="text" class="form-control setwidth" ng-model="selected.description" ng-attr-placeholder="{{'Table.Description'|translate}}"></textarea>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control " ng-model="selected.price" placeholder="{{'Table.InsuredValue(Price)'|translate}}">
+                                </td>
+                                <td>
+                                    <input type="text" readonly class="form-control " ng-model="selected.status" placeholder="{{'Table.Status'|translate}}">
+                                </td>                               
+                                <td >
+                                    <div class="btn-group btn-group-circle btn-outline" style="display:flex !important;">
+                                        <span ng-click="SaveItemDetails($index)" class="btn green btn-sm btn-outline">Save</span>
+                                        <span ng-click="reset()" class="btn red btn-sm  btn-outline">Cancel</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr dir-paginate="item in FiletrLostDamageList |orderBy:sortKey:reverse|filter:search|itemsPerPage:5" ng-include="getTemplate(item)"></tr>
+                            <tr ng-if="FiletrLostDamageList ===null || FiletrLostDamageList.length ==0">
+                                <td></td>
+                                <td colspan="13" class="text-center text-danger">No records avaliable</td>
+                            </tr>
+
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                    <div class="clearfix"></div>
+                    <dir-pagination-controls max-size="3" direction-links="true" boundary-links="true" class="pull-right ">
+                    </dir-pagination-controls>
+                    <script type="text/ng-template" id="display">
+                        <td>
+                            <!--<label class="mt-radio mt-radio-single mt-radio-outline"><input type="radio" class="radio" name="EditId"/><span></span></label>-->
+                            <a style="text-decoration:none;color:black;" class="fa fa-pencil-square-o fa-lg" aria-hidden="true" ng-click="EditItemDetails(item)"></a>
+                        </td>
+                        <td>{{item.itemName}}</td>
+                        <td>{{item.scheduled}}</td>
+                        <td>{{item.brand}}</td>
+                        <td>{{item.model}}</td>
+                        <td>{{item.categoryName}} </td>
+                        <td>{{item.subCategoryName}} </td>
+                        <td>{{item.age}}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{item.price}}</td>  
+                        <td>{{item.status}}</td>
+                        <td>
+                            <div style="display:flex;">
+                                <div style="display:flex;">
+                                    <a class="TextDecorationNone margintopleft5"><i class="fa fa-check-circle fa-2x text-success " aria-hidden="true"></i> </a>
+                                    <a class="TextDecorationNone margintop5" ng-click="DeletItem(item)"> <i class="fa fa-times-circle fa-2x text-danger" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </td>
+                    </script>
+                    <script type="text/ng-template" id="edit">
+                        <td>
+                            <!--<label class="mt-radio mt-radio-single mt-radio-outline"><input type="radio" class="radio" name="EditId"/><span></span></label>-->
+                            <!--<a style="text-decoration:none;color:red;" class="fa fa-close fa-lg" aria-hidden="true" ng-click="reset()"></a>-->
+                        </td>
+                        <td>
+                            <input type="text" class="form-control " ng-model="selected.itemName" placeholder="{{'Table.ItemName_Title'|translate}}">
+                        </td>
+                        <td>
+                            <select class="input-small select2me form-control " data-placeholder="Select..." ng-model="selected.scheduled">
+                                <option value="true" ng-selected="selected.scheduled">Yes</option>
+                                <option value="false" ng-selected="!selected.scheduled">No</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control " ng-model="selected.brand" placeholder="{{'Table.Brand'|translate}}">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control " ng-model="selected.model" placeholder="{{'Table.Model'|translate}}">
+                        </td>
+                        <td>                           
+                            <select class="input-small select2me form-control " data-placeholder="Select..." ng-model="selected.categoryId" ng-change="GetSubCategory()">
+                                <option value="{{Cat.categoryId}}" ng-repeat="Cat in CategoryList" >{{Cat.categoryName}}</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="input-small select2me form-control " data-placeholder="Select..." ng-model="selected.subCategoryId">
+                                <option value="{{subCat.id}}" ng-repeat="subCat in SubCategory">{{subCat.name}}</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control  " ng-model="selected.age" placeholder="{{'Table.Age'|translate}}">
+                        </td>
+                        <td>
+                            <textarea type="text" class="form-control setwidth" ng-model="selected.description" ng-attr-placeholder="{{'Table.Description'|translate}}"></textarea>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control " ng-model="selected.price" placeholder="{{'Table.InsuredValue(Price)'|translate}}">
+                        </td>
+                        <td>
+                            <input type="text" readonly class="form-control " ng-model="selected.status" placeholder="{{'Table.Status'|translate}}">
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-circle btn-outline" style="display:flex;">
+                                <span ng-click="SaveItemDetails($index)" class="btn green btn-sm btn-outline">Save</span>
+                                <span ng-click="reset()" class="btn red btn-sm  btn-outline">Cancel</span>
+                            </div>
+                        </td>
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

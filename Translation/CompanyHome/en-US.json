@@ -1,0 +1,16 @@
+﻿{
+  "Heads": {
+    "mostRecentCompany": "Most Recent Companies",
+    "CompanyList": "Company List"
+  },
+
+  "Table": {
+    "CompanyName": "CompanyName",
+    "CompanyWebSite": "CompanyWebSite",
+    "Phone": "Phone",
+    "FAX": "FAX",
+    "ContactPerson": "ContactPerson",
+    "PhoneNo": "PhoneNo",
+    "NoRecord": "No records avaliable"
+  }
+}

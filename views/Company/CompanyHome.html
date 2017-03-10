@@ -1,0 +1,118 @@
+﻿<div class="" >
+    <div class="col-md-12">
+        <div class="portlet-body">
+            <div class="row">
+                <div class="col-md-12 ">
+                    <div class="portlet light bordered">
+                        <div class="portlet-title">
+                            <div class="caption font-green-sharp">
+                                <i class="icon-settings font-green-sharp"></i>
+                                <span class="caption-subject bold uppercase">{{"Heads.mostRecentCompany"|translate}}</span>
+                                <!--<span class="caption-helper">ui.bootstrap.accordion</span>-->
+                            </div>
+                            <div class="tools">
+                                <a href="" class="collapse"> </a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="task-list panel-collapse collapse" style="display:block">
+                                <ul>
+                                    <li class="task-list-item">
+
+                                        <div class="task-content">
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec elementum gravida mauris, a tincidunt dolor porttitor eu. </p>
+                                        </div>
+                                    </li>
+                                    <li class="task-list-item">
+
+                                        <div class="task-content">
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec elementum gravida mauris, a tincidunt dolor porttitor eu. </p>
+                                        </div>
+                                    </li>
+                                    <li class="task-list-item">
+
+                                        <div class="task-content">
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec elementum gravida mauris, a tincidunt dolor porttitor eu. </p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portlet-body portlet light bordered ">
+                        <label class="caption-subject bold uppercase"> Company List</label>
+                        <div class="row">
+                            <div class="col-md-12 table-responsive">
+                                <table class="table table-striped table-bordered table-hover table-checkable order-column">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <td ng-click="sort('CompanyName')">
+                                                {{"Table.CompanyName" | translate}}
+                                                <span class="glyphicon sort-icon" ng-show="sortKey=='CompanyName'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                            </td>
+                                            <!--<td ng-click="sort('CompanyName')">
+                                                {{"Table.CompanyName"|translate}}
+                                                <span class="glyphicon sort-icon" ng-show="sortKey=='CompanyName'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                            </td>-->
+                                            <td ng-click="sort('CompanyWebSite')">
+                                                {{"Table.CompanyWebSite"|translate}}
+                                                <span class="glyphicon sort-icon" ng-show="sortKey=='CompanyWebSite'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+
+                                            </td>
+                                            <td ng-click="sort('Phone')">
+                                                {{"Table.Phone"|translate}}
+
+                                                <span class="glyphicon sort-icon" ng-show="sortKey=='Phone'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                            </td>
+                                            <td ng-click="sort('FAX')">
+                                                {{"Table.FAX"|translate}}
+                                                <span class="glyphicon sort-icon" ng-show="sortKey=='FAX'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                            </td>
+                                            <td ng-click="sort('ContactPerson')">
+                                                {{"Table.ContactPerson"|translate}}
+                                                <span class="glyphicon sort-icon" ng-show="sortKey=='ContactPerson'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                            </td>
+                                            <td ng-click="sort('PhoneNo')">
+                                                {{"Table.PhoneNo"|translate}}
+                                                <span class="glyphicon sort-icon" ng-show="sortKey=='PhoneNo'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                            </td>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr ng-if="ComapnyList!=null" dir-paginate="item in ComapnyList|orderBy:sortKey:reverse|filter:search|itemsPerPage:5">
+                                            <td><span class="fa fa-pencil-square-o"></span></td>
+                                            <td>{{item.CompanyName}}</td>
+                                            <td>{{item.CompanyWebSite}}  </td>
+                                            <td>{{item.Phone}}</td>
+                                            <td>{{item.FAX}}</td>
+                                            <td>{{item.ContactPerson}}</td>
+                                            <td>{{item.PhoneNo}}</td>                                            
+                                        </tr>
+                                        <tr ng-if="ComapnyList===null" ><td></td>
+                                            <td colspan="6"><span class="text-danger text-center">{{ {{"Table.NoRecord"|translate}}}}</span></td></tr>
+</tbody>
+                                </table>
+
+                                <div class="clearfix"></div><dir-pagination-controls max-size="3" ng-if="ComapnyList!==null || ComapnyList.length!==0"
+                                                                                     direction-links="true"
+                                                                                     boundary-links="true" class="pull-right ">
+                                </dir-pagination-controls>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

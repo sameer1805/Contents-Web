@@ -1,0 +1,39 @@
+﻿{
+  "TabHeaderText": {
+    "NewSpecialists": "New Claim Specialists",
+    "CategorySpecialities": "Category Specialities",
+    "UserNameNote": "(This would be the default username)",
+    "Note": "the user will be sent an email to setup the account",
+    "Specialists": "Specialists",
+    "ContactInformation": "Contact Information"
+  },
+  "ControlText": {
+    "ContactInformation": "Contact Information",
+    "SearchCategory": "Search Category",
+    "Employee#": "Employee#",
+    "FirstName": "First Name",
+    "LastName": "Last Name",
+    "EmailId": "Email Id",
+    "DayTimePhone": "Day Time Phone",
+    "MobilePhone": "Mobile Phone",
+    "Address": "Address",
+    "AddressLine1": "Street Address 1",
+    "AddressLine2": "Street Address 2",
+    "Town": "Town/City",
+    "State": "State",
+    "Zip": "Zip Code",
+    "ReportingManager": "Reporting Manager",
+    "Branch/Office": "Branch/Office",
+    "Role": "Role",
+    "Designation": "Designation",
+    "Save": "Save",
+    "CategorySpecialities": "Category Specialities"
+  },
+  "CategorySpecialistsTable": {
+    "search": "Serach categories",
+    "Specialty": "Specialty",
+    "Categories": "Categories"
+  }
+
+
+}

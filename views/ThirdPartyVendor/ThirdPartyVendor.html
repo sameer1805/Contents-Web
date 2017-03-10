@@ -1,0 +1,707 @@
+﻿<div class="row">
+    <div class="col-md-12 clearfix">
+        <div class="col-md-12 margin-bottom-10">
+
+            <button id="btnBack" class="btn sbold green btnMargin" ng-click="back()">
+                <i class="fa fa-arrow-left"></i>
+                {{"ControlText.Back_title"|translate}}
+            </button>
+            <button id="btnStatus" class="btn sbold green btnMargin" ng-click="openmodel($event)">
+                <i class="fa fa-navicon"></i>
+                {{"ControlText.Status_title"|translate}}
+            </button>
+            <button id="btnSave" class="btn sbold green btnMargin" ng-click="SaveClaimDetails($event)">
+                <i class="fa fa-save"></i>
+                {{"ControlText.Save_title"|translate}}
+            </button>
+            <button id="btnAddInvoices" class="btn sbold green btnMargin" ng-click="AddInvoices($event)">
+                <i class="fa fa-plus"></i>
+                {{"ControlText.AddInvoices_title"|translate}}
+            </button>
+
+        </div>
+    </div>
+        <div class="col-md-12 clearfix">
+            <div class="col-md-12">
+                <div class="col-md-12 portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption font-green-sharp">
+
+                            <span class="caption-subject bold uppercase">
+                                {{"HeaderTitle.Claims_title"|translate}}
+                                &nbsp; &nbsp;<font class="CaptionNormal"> {{ClaimNumber}}</font>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+    <!--Claims Details-->
+    <div class="col-md-12">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-green-sharp">
+
+                        <span class="caption-subject bold uppercase">{{"TabHeaderTitle.ClaimDetails"|translate}}</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                        <a href="" class="fullscreen"> </a>
+                    </div>
+                </div>
+               
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12 margin-top-15">
+                            <div class="col-md-6">
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">{{"ControlText.Claim"|translate}}</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" placeholder='{{"ControlText.Claim"|translate}}' />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">{{"ControlText.AggregateLimit"|translate}}</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" placeholder='{{"ControlText.AggregateLimit"|translate}}' />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">{{"ControlText.Deductible"|translate}}</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" placeholder='{{"ControlText.Deductible"|translate}}' />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">{{"ControlText.TaxRates"|translate}}</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" placeholder='{{"ControlText.TaxRates"|translate}}' />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">{{"ControlText.IndividualLimit1"|translate}}</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" placeholder='{{"ControlText.IndividualLimit1"|translate}}' />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">{{"ControlText.IndividualLimit2"|translate}}</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" placeholder='{{"ControlText.IndividualLimit2"|translate}}' />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">{{"ControlText.IndividualLimit3"|translate}}</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" placeholder='{{"ControlText.IndividualLimit3"|translate}}' />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">{{"ControlText.IndividualLimit4"|translate}}</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" placeholder='{{"ControlText.IndividualLimit4"|translate}}' />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Of Claims-->
+
+    <!--Service Requeted-->
+    <div class="col-md-12 clearfix">
+        <div class="col-md-12">
+            <div class="portlet light bordered col-md-12">
+                <div class="col-md-4 sbold">{{"ServiceRequested"|translate}}</div>
+                <div class="col-md-4">{{"FullEvaluation"|translate}}</div>
+                <div class="col-md-4">{{"ItemReplacement"|translate}}</div>
+            </div>
+        </div>
+    </div>
+    <!--End Service Requeted-->
+    
+    <div class="col-md-12 clearfix">
+        <!--Insurance Company  Details-->
+        <div class="col-md-6">
+
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-green-sharp">
+
+                        <span class="caption-subject bold uppercase">{{"TabHeaderTitle.InsuranceCompanyDetails"|translate}}</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                        <a href="" class="fullscreen"> </a>
+                    </div>
+                </div>
+
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12 clearfix">
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <h5 class="text-primary">{{"TabHeaderTitle.AdjusterDetails"|translate}}</h5>
+                                </div>
+                                <div class="form-group col-md-12 margin-top-15">
+
+                                    <label class="control-label text-muted">{{"FormControlText.Name"|translate}}</label>
+
+                                    <input type="text" class="form-control" placeholder='{{"FormControlText.Name"|translate}}' />
+
+                                </div>
+                                <div class="form-group col-md-12">
+
+                                    <label class="control-label text-muted">{{"FormControlText.Phone"|translate}}</label>
+
+                                    <input type="text" class="form-control" placeholder='{{"FormControlText.Phone"|translate}}' />
+
+                                </div>
+                                <div class="form-group col-md-12">
+
+                                    <label class="control-label text-muted">{{"FormControlText.Email"|translate}}</label>
+
+                                    <input type="text" class="form-control" placeholder='{{"FormControlText.Email"|translate}}' />
+
+                                </div>
+                                <div class="form-group col-md-12">
+
+                                    <label class="control-label text-muted">{{"FormControlText.Fax"|translate}}</label>
+
+                                    <input type="text" class="form-control" placeholder='{{"FormControlText.Fax"|translate}}' />
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <h5 class="text-primary">{{"TabHeaderTitle.InsuranceCompanyDetails"|translate}}</h5>
+                                </div>
+                                <div class="form-group col-md-12  margin-top-15">
+
+                                    <label class="control-label text-muted">{{"FormControlText.Address"|translate}}</label>
+
+                                    <textarea class="form-control" placeholder='{{"FormControlText.Address"|translate}}'></textarea>
+
+                                </div>
+                                <div class="form-group col-md-12">
+
+                                    <label class="control-label text-muted">{{"FormControlText.Phone"|translate}}</label>
+
+                                    <input type="text" class="form-control" placeholder='{{"FormControlText.Phone"|translate}}' />
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--End  New Design-->
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!--End Insurance Company  Details-->
+        <!--Policyholder  Details-->
+        <div class="col-md-6">
+
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-green-sharp">
+
+                        <span class="caption-subject bold uppercase">{{"TabHeaderTitle.PolicyHolderDetails"|translate}}</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                        <a href="" class="fullscreen"> </a>
+                    </div>
+                </div>
+
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12 margin-top-15">
+                            <div class="form-group col-md-6">
+
+                                <label class="control-label text-muted">{{"FormControlText.LastName"|translate}}</label>
+
+
+                                <input type="text" class="form-control" placeholder='{{"FormControlText.LastName"|translate}}' />
+
+                            </div>
+                            <div class="form-group col-md-6">
+
+                                <label class="control-label text-muted">{{"FormControlText.FisrtName"|translate}}</label>
+
+                                <input type="text" class="form-control" placeholder='{{"FormControlText.FisrtName"|translate}}' />
+
+                            </div>
+                            <div class="form-group col-md-6">
+
+                                <label class="control-label text-muted">{{"FormControlText.DayTimePhone"|translate}}</label>
+
+                                <input type="text" class="form-control" placeholder='{{"FormControlText.DayTimePhone"|translate}}' />
+
+                            </div>
+                            <div class="form-group col-md-6">
+
+                                <label class="control-label text-muted">{{"FormControlText.CellPhone"|translate}}</label>
+
+                                <input type="text" class="form-control" placeholder='{{"FormControlText.CellPhone"|translate}}' />
+
+                            </div>
+                            <div class="form-group col-md-6">
+
+                                <label class="control-label text-muted">{{"FormControlText.Email"|translate}}</label>
+
+                                <input type="text" class="form-control" placeholder='{{"FormControlText.Email"|translate}}' />
+
+                            </div>
+                            <div class="form-group col-md-6">
+
+                                <label class="control-label text-muted">{{"FormControlText.BillingAddress"|translate}}</label>
+
+                                <textarea class="form-control" placeholder='{{"FormControlText.BillingAddress"|translate}}'></textarea>
+
+
+                            </div>
+
+                            <div class="form-group col-md-6 pull-right">
+                                <div class="col-md-3">
+                                    <label class="control-label text-muted">{{"FormControlText.ContactInsured"|translate}}</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="col-md-6">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="optradio" ng-click="InternalPraticipant($event)">{{"Radio.Yes"|translate}}
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="radio-inline">
+
+                                            <input type="radio" name="optradio" ng-click="InternalPraticipant($event)">{{"Radio.No"|translate}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--End Policyholder  Details-->
+
+    </div>
+
+
+
+    <!--Service Requested-->
+    <!--<div class="col-md-12">
+        <div class="col-md-12">
+            <div class="portlet light bordered col-md-12">
+                <div class="portlet">
+                    <div class="portlet-title">
+                        <h4 class="text-primary">{{"RequestedService.Title"|translate}}</h4>
+                    </div>
+
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12 clearfix">
+                            <div class="col-md-4 caption font-green">
+                                {{ServiceRequested}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label class="col-md-12 mt-checkbox mt-checkbox-outline font-red-flamingo">
+                            <input type="checkbox" class="checkboxes" />
+                            <span></span>
+                           {{"RequestedService.FullEvaluation"|translate}}
+                        </label>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="col-md-12 mt-checkbox mt-checkbox-outline font-red-flamingo">
+                            <input type="checkbox" class="checkboxes" />
+                            <span></span>
+                          {{"RequestedService.QuoteOnly"|translate}}
+                        </label>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="col-md-12 mt-checkbox mt-checkbox-outline font-red-flamingo">
+                            <input type="checkbox" class="checkboxes" />
+                            <span></span>
+                         {{"RequestedService.Replace"|translate}}
+                        </label>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="col-md-12 mt-checkbox mt-checkbox-outline font-red-flamingo">
+                            <input type="checkbox" class="checkboxes" />
+                            <span></span>
+                          {{"RequestedService.InspectionServices"|translate}}
+                        </label>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="col-md-12 mt-checkbox mt-checkbox-outline font-red-flamingo">
+                            <input type="checkbox" class="checkboxes" />
+                            <span></span>
+                         {{"RequestedService.Slavage"|translate}}
+                        </label>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="col-md-12 mt-checkbox mt-checkbox-outline font-red-flamingo">
+                            <input type="checkbox" class="checkboxes" />
+                            <span></span>
+                        {{"RequestedService.PartialReplacement"|translate}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <!--End Service Requested-->
+
+  
+    <div class="col-md-12">
+        <!--Events-->
+        <div class="col-md-6">
+         
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-green-sharp col-md-9">
+                        <span class="caption-subject bold uppercase">{{"HeaderTitle.Event_title"|translate}}</span>
+                    </div>
+
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                        <a href="" class="fullscreen"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12 margin-bottom-15 clearfix">
+                            <!--<button id="btnAddNote" class="btn sbold red btnMargin" ng-click="ShowAddNoteArea($event)">
+                        <i class="fa fa-plus"></i>
+                        {{"ControlText.AddNote_title"|translate}}
+                    </button>-->
+                            <!--&nbsp; &nbsp;<span><i class="fa fa-clock-o fa-2x"></i>&nbsp; &nbsp; </span><span class="fa fa-send fa-2x"></span>-->
+                            <!--<div class="caption form-group font-green-sharp col-md-4 pull-right btnMargin">
+                        <div class="input-icon left">
+                            <i class="icon-magnifier"></i>
+                            <input type="text" class="form-control form-control-solid input-circle input-block-level" ng-model="search" placeholder={{"NotesSearchText"|translate}}>
+                        </div>
+                    </div>-->
+                        </div>
+                        <div class="table-responsive col-md-12" style="height:250px;">
+                            <table class="table table-striped table-bordered table-hover table-checkable order-column">
+                                <thead>
+                                    <tr>
+
+                                        <th>{{"Table.Date"|translate}}</th>
+                                        <th> {{"Table.Participant"|translate}}</th>
+                                        <th>{{"Table.Action"|translate}}</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="Note in Notes|filter:search">
+
+                                        <td>{{Note.Date}} </td>
+                                        <td> </td>
+                                        <td><textarea class="form-control" readonly>{{Note.Message}}</textarea></td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="col-md-12 margin-top-10">
+                            <div class="col-md-1 margin-top-15">
+                                <span class="fa fa-calendar-times-o fa-2x"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-icon left margin-top-15">
+                                    <i class="icon-magnifier"></i>
+                                    <input type="text" class="form-control form-control-solid input-circle input-block-level btnMargin" ng-model="search" placeholder={{"ParticipantSearchText"|translate}}>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <textarea class="form-control" ng-model="CommonObj.claimNote" placeholder='{{"ControlText.NotePlaceholder"|translate}}' rows="3"></textarea>
+                            </div>
+                            <div class="col-md-12 margin-top-10 clearfix">
+
+                                <!--<button class="btn sbold red btnMargin pull-right" ng-click="HideAddNoteArea($event)">
+                            <i class="fa fa-remove"></i>
+                            {{"ControlText.CancelNote"|translate}}
+                        </button>-->
+                                <button class="btn sbold blue btnMargin pull-right" ng-click="AddEvent($event)">
+                                    <!--<i class="fa fa-save"></i>-->
+                                    {{"ControlText.CreateEvent"|translate}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+        <!--Events-->
+        <!--Notes-->
+        <div class="col-md-6">
+       
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-green-sharp col-md-9">
+                        <span class="caption-subject bold uppercase">{{"HeaderTitle.Notes_title"|translate}}</span>
+                    </div>
+
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                        <a href="" class="fullscreen"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12 margin-bottom-15 clearfix">
+                         
+                        </div>
+                        <div class="table-responsive col-md-12" style="height:250px;">
+                            <table class="table table-striped table-bordered table-hover table-checkable order-column">
+                                <thead>
+                                    <tr>
+                                        <th>{{"Table.Author"|translate}}</th>
+                                        <th>{{"Table.Date"|translate}}</th>
+                                        <th>{{"Table.Message"|translate}}</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="Note in ClaimNotes|filter:searchNote">
+                                        <td>{{Note.senderName}} </td>
+                                        <td>{{Note.date}} </td>
+                                        <td><textarea class="form-control" readonly>{{Note.message}}</textarea></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="col-md-12 margin-top-10">
+                            <div class="col-md-4">
+                                <div class="input-icon left margin-top-15">
+                                    <i class="icon-magnifier"></i>
+                                    <input type="text" class="form-control form-control-solid input-circle input-block-level btnMargin" ng-model="searchNote" placeholder={{"ParticipantSearchText"|translate}}>
+                                </div>
+                            </div>
+                            <div class="col-md-8 clearfix">
+                                <textarea class="form-control" ng-model="CommonObj.claimNote" placeholder='{{"ControlText.NotePlaceholder"|translate}}' rows="3"></textarea>
+                            </div>
+                            <div class="col-md-12 margin-top-10 clearfix">
+
+                            
+                                <button class="btn sbold blue btnMargin pull-right" ng-click="AddNote($event)">
+                                   
+                                    {{"ControlText.SendNote"|translate}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+        <!--End Notes-->
+    </div>
+    
+
+
+    <!--Damaged Contents-->
+    <div class="col-md-12">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-green-sharp col-md-9">
+                        <span class="caption-subject bold uppercase">{{"HeaderTitle.LostOrDamagedContents"|translate}}</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                        <a href="" class="fullscreen"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12 clearfix">
+                            <button id="btnAddItem" class="btn sbold red  btnMargin" ng-click="AddnewItemPopup($event)">
+                                <i class="fa fa-plus"></i>
+                                {{"ControlText.AddItem_title"|translate}}
+                            </button>
+
+                            <button id="btnLoadFile" class="btn sbold yellow btnMargin" ng-click="AssignPostLostItem($event)">
+                                <i class="fa fa-folder"></i>
+                                {{"ControlText.LoadFromFile"|translate}}
+                            </button>
+                            <button id="btnAssign" class="btn sbold green btnMargin" ng-click="AssignPostLostItem($event)">
+                                <i class="fa fa-briefcase"></i>
+                                {{"ControlText.Assign_title"|translate}}
+                            </button>
+
+                            <button id="btnDelete" class="btn sbold green  btnMargin disabled" ng-click="DeletItem($event)">
+                                <i class="fa fa-remove"></i>
+                                {{"ControlText.Delete_title"|translate}}
+                            </button>
+
+
+                            <button id="btnValue" class="btn sbold green  btnMargin disabled" ng-click="openValueModel($event)">
+                                <i class="fa fa-dollar"></i>
+                                {{"ControlText.Value_title"|translate}}
+                            </button>
+
+
+                            <button id="btnPayout" class="btn sbold green  btnMargin disabled" ng-click="openItemPayoutModel($event)">
+                                <i class="fa fa-credit-card"></i>
+                                {{"ControlText.Payout_title"|translate}}
+                            </button>
+
+                            <div class="form-group col-md-3">
+                                <select class="bs-select form-control btn-primary btnMargin" data-style="blue">
+                                    <option>Questions to PH</option>
+                                    <option>Supervisor Query</option>
+                                    <option>3rd Party Vendor Query</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 margin-top-20 clearfix">
+
+                            <!--<div class="form-group col-md-3">
+                                <select class="bs-select form-control btn-primary" data-style="blue">
+                                    <option>Questions to PH</option>
+                                    <option>Supervisor Query</option>
+                                    <option>3rd Party Vendor Query</option>
+                                </select>
+                            </div>-->
+                            <label class="control-label col-md-1 text-primary">{{"ControlText.View_title"|translate}}</label>
+                            <div class="form-group col-md-3">
+                                <select class="input-small select2me" name="Categories" ng-model="Categories" data-placeholder="CategoryList..." ng-change="GetItemsByCategory($event)">
+                                    <option value="ALL" selected>All</option>
+                                    <option ng-repeat="category in DdlSourceCategoryList" value="{{category.categoryName}}">{{category.categoryName}}</option>
+                                </select>
+                            </div>
+                            <div class="caption font-green-sharp col-md-4">
+                                <div class="input-icon left">
+                                    <i class="icon-magnifier"></i>
+                                    <input type="text" class="form-control form-control-solid input-circle input-block-level" ng-model="searchDamagedContent" placeholder={{"LostDamagedSearchText"|translate}}>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--table data-->
+                        <div class="col-md-12 margin-bottom-20"></div>
+                        <div class="table-responsive col-md-12">
+                            <table class="table table-striped table-bordered table-hover table-checkable order-column">
+                                <thead>
+                                    <tr>
+                                        <th class="table-checkbox">
+                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                <input type="checkbox" class="group-checkable" ng-model="DeleteAll" ng-click="DeleteAllItems()" />
+                                                <span></span>
+                                            </label>
+                                        </th>
+                                        <th ng-click="sortpostlostitem('itemName')">
+                                            {{"Table.ItemName"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortKey=='itemName'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                        </th>
+                                        <th ng-click="sortpostlostitem('brand')">
+                                            {{"Table.Brand"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortKey=='brand'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                        </th>
+                                        <th ng-click="sortpostlostitem('model')">
+                                            {{"Table.Model"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortKey=='model'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                        </th>
+                                        <th ng-click="sortpostlostitem('price')">
+                                            {{"Table.Price"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortKey=='price'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                        </th>
+                                        <th ng-click="sortpostlostitem('categoryName')">
+                                            {{"Table.Category"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortKey=='categoryName'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                        </th>
+                                        <th ng-click="sortpostlostitem('subCategoryName')">
+                                            {{"Table.SubCategory"|translate}}
+                                            <span class="glyphicon sort-icon" ng-show="sortKey=='subCategoryName'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                        </th>
+                                        <th>{{"Table.Age"|translate}}</th>
+                                        <th>{{"Table.Status"|translate}}</th>
+                                        <th>{{"Table.ReplacedValue"|translate}}</th>
+                                        <th>{{"Table.RCV"|translate}}</th>
+                                        <th>{{"Table.ACV"|translate}}</th>
+                                        <th>{{"Table.PayoutCheck"|translate}} </th>
+                                        <th>{{"Table.Holdover"|translate}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-if="LostOrDamagedContent!=null" dir-paginate="Content in LostOrDamagedContent|orderBy:sortKey:reverse|filter:searchDamagedContent|itemsPerPage:pagesize" pagination-id="LostOrDamagedContent">
+                                        <td>
+                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                <input type="checkbox" class="checkboxes" ng-checked="exists(Content.itemId,DeleteListLostDamageItem)" ng-click="AddToDeleteList(Content.itemId)" />
+                                                <span></span>
+                                            </label>
+                                        </td>
+                                        <td ng-click="openLineItemdetails(Content)"><a herf="#">{{Content.itemName}}</a></td>
+                                        <td ng-click="openLineItemdetails(Content)"><a herf="#">{{Content.brand}}</a></td>
+                                        <td ng-click="openLineItemdetails(Content)"><a herf="#">{{Content.model}}</a></td>
+                                        <td ng-click="openLineItemdetails(Content)"><a herf="#">{{Content.price}}</a></td>
+                                        <td ng-click="openLineItemdetails(Content)"><a herf="#">{{Content.categoryName}}</a></td>
+                                        <td ng-click="openLineItemdetails(Content)"><a herf="#">{{Content.subCategoryName}}</a></td>
+                                        <td ng-click="openLineItemdetails($event)"><a herf="#"><!--{{Content.Age}}--></a></td>
+                                        <td ng-click="openLineItemdetails($event)"><a herf="#"><!--{{Content.Status}}--></a></td>
+                                        <td ng-click="openLineItemdetails($event)"><a herf="#"><!--{{Content.ReplacedValue}}--></a></td>
+                                        <td ng-click="openLineItemdetails($event)"><a herf="#"><!--{{Content.RCV}}--></a></td>
+                                        <td ng-click="openLineItemdetails($event)"><a herf="#"><!--{{Content.ACV}}--></a></td>
+                                        <td ng-click="openLineItemdetails($event)"><a herf="#"><!--{{Content.PayoutCheck}}--></a></td>
+                                        <td ng-click="openLineItemdetails($event)"><a herf="#"><!--{{Content.Holdover}}--></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div ng-show="!LostOrDamagedContent.length" class="col-md-12 text-center text-danger">{{"NoRecordText"|translate}}</div>
+                            <dir-pagination-controls max-size="3"
+                                                     direction-links="true"
+                                                     boundary-links="true" class="pull-right" pagination-id="LostOrDamagedContent">
+                            </dir-pagination-controls>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--End Damaged Contents-->
+</div>

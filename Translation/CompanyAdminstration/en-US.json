@@ -1,0 +1,30 @@
+﻿{
+  "MainHeadings": {
+    "Filter": "Filter",
+    "showuser": "Show users where",
+    "UpdateOption": "Update Options"
+  },
+  "Filterhead": {
+    "username": "User name is",
+    "role": "Role",
+    "status": "Status"
+  },
+  "btn": {
+    "Save": "Save",
+    "edit": "Edit",
+    "Update": "Update",
+    "delete": "Delete",
+    "Cancel": "Cancel",
+    "Search": "Search",
+    "pagelength": "Show"
+  },
+  "Table": {
+    "username": "User Name",
+    "Status": "Status",
+    "role": "Role",
+    "lastaccess": "Last Access",
+    "membersince": "Member Since",
+    "operation": "Action"
+  }
+
+}

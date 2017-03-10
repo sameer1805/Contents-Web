@@ -1,0 +1,24 @@
+﻿{
+  "MainHeaderText": "3rd Party Vendor",
+  "ControlText": {
+    "NewVendor": "Add New Vendor",
+    "LoadFromFile": "Load From File",
+    "Export": "Export",
+    "Edit": "Edit",
+    "Delete": "Delete"
+  },
+
+  "Label": {
+    "PageSize": "Show",
+    "View": "View",
+    "search": "search... Supplier #, Supplier's Name"
+  },
+  "Table": {
+    "Supplier": "Supplier #",
+    "SupplierName": "SupplierName",
+    "ContactPerson": "Contact Person",
+    "PhoneNo": "Supplier's Phone No",
+    "Status": "Status",
+    "Action": "Action"
+  }
+}

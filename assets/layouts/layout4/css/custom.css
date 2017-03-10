@@ -1,0 +1,111 @@
+/* here you can put your own css to customize and override the theme */
+.nomargin {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+    .modalcustom .modal-content {
+        width: auto;
+        height: 240px;
+    }
+
+    .modalcustom .modal-body {
+        height: 100px;
+    }
+    .divborder{
+        border-style:solid;border-width:1px;
+    }
+    .FontRed{
+        color:red !important;
+    }
+.width35 {
+width:35%;
+}
+.width15 {
+width:15%;
+}
+.width20{
+    width:20%;
+}
+.width45{
+    width:45%;
+}
+.smallCircleButton{
+    padding: 1px 6px !important;
+}
+.TextDecorationNone{
+    text-decoration:none;
+}
+.padding5{
+    padding:5px;
+}
+ .setwidth{
+            width: 120px !important;
+    }
+ .margintop5{
+         margin-top: 5px;
+ }
+ .margintopleft5{
+     margin:5px 5px 0px 0px
+ }
+/*For select box*/
+/*Added by pradip for scrollable div - line item details page*/
+.imageDivScrollable {
+    max-width:100%;
+    overflow-x: auto;
+    overflow-y:hidden;
+    border: 0px solid black;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    padding-top: 10px;
+    padding-left: 3px;
+    padding-right: 3px;
+    box-shadow:2px 0px 20px 2px #E5E3F5;
+}
+
+.btnNextPrevoius {
+    position: relative;
+    margin-top: 50% !important;
+}
+/*For caption in div colapseble */
+.CaptionNormal{
+    font-size: 15px;font-weight: normal;color: #333333;
+}
+/*Added by pradip to keep margin top and button while show in mobile view*/
+.btnMargin {
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left:1px;
+    margin-right:1px;
+}
+
+/*Added for increasing image height and width after hover*/
+ .ImageContainer:hover{
+            height:180px;
+            width:180px;
+        }
+
+/*Mobile*/
+button {
+    min-width: 70px;
+}
+/* For Destop: */
+@media only screen and (min-width: 768px ) {
+    /*FNOL Request Add Note button*/
+    button {
+        min-width: 85px;
+    }
+
+    .btnMargin {
+        margin-top: 1px;
+        margin-bottom: 1px;
+    }
+}
+/* for auto complete extender*/
+.angucomplete-dropdown {
+    overflow-y: auto;
+    max-height: 200px; 
+}

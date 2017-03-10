@@ -1,0 +1,107 @@
+﻿{
+  "ControlText": {
+    "Back_title": "Back",
+    "AddInvoices_title": "Add Invoices",
+    "Status_title": "Status",
+    "Save_title": "Save",
+    "AddNote_title": "Add Note",
+    "AddItem_title": "Add Item",
+    "Value_title": "Value",
+    "Delete_title": "Delete",
+    "Payout_title": "Payout",
+    "View_title": "View",
+    "Assign_title": "Assign",
+    "SaveNote": "Save",
+    "CancelNote": "Cancel",
+    "NotePlaceholder": "Add Note Here",
+    "CreateEvent": "Create Event",
+    "SendNote": "Send Note",
+    "LoadFromFile": "Load From File",
+    "Claim": "Claim #",
+    "AggregateLimit": "Aggregate Limit",
+    "Deductible": "Deductible",
+    "TaxRates": "Tax Rates",
+    "IndividualLimit1": "IndividualLimit 1",
+    "IndividualLimit2": "IndividualLimit 2",
+    "IndividualLimit3": "IndividualLimit 3",
+    "IndividualLimit4": "IndividualLimit 4"
+  },
+  "HeaderTitle": {
+    "Claims_title": "Claim #",
+    "Notes_title": "Notes",
+    "Event_title": "Events",
+    "LostOrDamgedContent": "Contents Reported As Lost / Damaged"
+  },
+  "TabHeaderTitle": {
+    "ClaimStatus_title": "Claim Status",
+    "ContactInformation": "Contact Information",
+    "ClaimDetails": "Claim Details",
+    "InsuranceCompanyDetails": "Insurance Company Details",
+    "PolicyHolderDetails": "Policyholder Details",
+    "AdjusterDetails": "Adjuster Details"
+
+  },
+  "Table": {
+    "Id": "Id",
+    "Author": "Author",
+    "Date": "Date",
+    "EventType": "Event Type",
+    "Message": "Message",
+    "Reminder": "Reminder",
+    "ItemName": "ItemName",
+    "Brand": "Brand",
+    "Model": "Model",
+    "Price": "Price",
+    "Category": "Category",
+    "SubCategory": "SubCategory",
+    "Age": "Age",
+    "Status": "Status",
+    "ReplacedValue": "ReplacedValue",
+    "RCV": "RCV",
+    "ACV": "ACV",
+    "PayoutCheck": "Patout Check #",
+    "Holdover": "Holdover",
+    "Action": "Action",
+    "Participant": "Participant"
+  },
+  "FormControlText": {
+    "Status": "Status",
+    "Ilimit": "ILIMIT",
+    "Alimit": "ALIMIT",
+    "Deductible": "Deductible",
+    "ReqSvc": "Req Svc",
+    "PhoneNo": "Phone No",
+    "Email": "Email",
+    "Fax": "Fax",
+    "LastName": "Last Name",
+    "FisrtName": "First Name",
+    "DayTimePhone": "DayTimePhone#",
+    "CellPhone": "Cell Phone#",
+    "BillingAddress": "Billing Address",
+    "Name": "Name",
+    "Phone": "Phone #",
+    "Address": "Address",
+    "ContactInsured": "Contact Insured"
+
+  },
+  "RequestedService": {
+    "Title": "Requested Service",
+    "FullEvaluation": "Full Evaluation",
+    "QuoteOnly": "Quote Only",
+    "Replace": "Replace",
+    "InspectionServices": "Inspection Services",
+    "Slavage": "Slavage",
+    "PartialReplacement": "Partial Replacement"
+
+  },
+  "Radio": {
+    "Yes": "Yes",
+    "No": "No"
+  },
+  "NotesSearchText": "Search",
+  "LostDamagedSearchText": "Search",
+  "ServiceRequested": "Service Requested",
+  "FullEvaluation": "Full Evaluation",
+  "ItemReplacement": "Item Replacement",
+  "ParticipantSearchText": "Participant"
+}

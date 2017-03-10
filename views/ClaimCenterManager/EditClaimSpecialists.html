@@ -1,0 +1,317 @@
+﻿<div class="row">
+    <div class="col-md-12">
+
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-green-sharp">
+                        <i class="icon-settings font-green-sharp"></i>
+                        <span class="caption-subject bold uppercase">{{"TabHeaderText.ContactInfromation" | translate}}</span>
+                    </div>
+                    <div class="tools">
+                        <button id="sample_editable_1_new " class="btn sbold green btnMargin" ng-click="SaveClaimSpecialist()">
+                            <i class="fa fa-save"></i>
+                            {{"ControlText.Save"|translate}}
+                        </button>
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="portlet light bordered">
+                                <div class="portlet-body">
+                                    <div class="row">
+                                        <!--top buttons-->
+                                        <div class="portlet">
+                                        </div>
+                                        <!-- Contact Information -->
+                                        <div class="col-md-12 form-group  clearfix">
+                                            <label class="col-md-2 control-label">{{"ControlText.FirstName"|translate}} </label>
+                                            <div class="col-md-3">
+                                                <input type="text" ng-model="ContactDetails.firstName" class="form-control" placeholder="{{'ControlText.FirstName'|translate}}">
+                                            </div>
+                                            <label class="col-md-2 col-md-offset-2 control-label">{{"ControlText.LastName"|translate}} </label>
+                                            <div class="col-md-3">
+                                                <input type="text" ng-model="ContactDetails.lastName" class="form-control" placeholder="{{'ControlText.LastName'|translate}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 form-group  clearfix">
+                                            <label class="col-md-2  control-label">{{"ControlText.EmailId"|translate}} </label>
+                                            <div class="col-md-3">
+                                                <input type="text" ng-model="ContactDetails.email" class="form-control" placeholder="{{'ControlText.EmailId'|translate}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 form-group  clearfix">
+                                            <label class="col-md-2 control-label">{{"ControlText.DayTimePhone"|translate}}</label>
+                                            <div class="col-md-1"><input type="text" class="form-control" ng-model="DayPhoneFirst" ng-maxlength="4"></div>
+                                            <div class="col-md-1"><input type="text" class="form-control" ng-model="DayPhoneSecond" ng-maxlength="4"></div>
+                                            <div class="col-md-1"><input type="text" class="form-control" ng-model="DayPhoneThird" ng-maxlength="4"></div>
+
+                                            <label class="col-md-2 col-md-offset-2 control-label">{{"ControlText.MobilePhone"|translate}} </label>                                           
+                                            <div class="col-md-1 "><input type="text" class="form-control " ng-maxlength="4" ng-model="CellPhoneFirst"></div>
+                                            <div class="col-md-1 "><input type="text" class="form-control " ng-maxlength="4" ng-model="CellPhoneSecond"></div>
+                                            <div class="col-md-1  "><input type="text" class="form-control " ng-maxlength="4" ng-model="CellPhoneThird"></div>
+
+                                        </div>
+
+                                        <div class="col-md-12 form-group  clearfix">
+                                            <label class="col-md-2 control-label">{{"ControlText.Address"|translate}} </label>
+                                            <div class="col-md-3 ">
+                                                <textarea class="form-control" ng-model="ContactDetails.address.streetAddressOne" placeholder="{{'ControlText.AddressLine1'|translate}}"></textarea>
+                                            </div>
+                                            <div class="col-md-5 col-md-offset-2">
+                                                <textarea class="form-control" ng-model="ContactDetails.address.streetAddressTwo" placeholder="{{'ControlText.AddressLine2'|translate}}"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 form-group  clearfix">
+                                            <div class="col-md-3 col-md-offset-2">
+                                                <input type="text" class="form-control" ng-model="ContactDetails.address.city" placeholder="{{'ControlText.Town'|translate}}">
+                                            </div>
+                                            <div class="col-md-3  col-md-offset-2 ">
+                                                <select class="input-sm select2me" ng-model="ContactDetails.address.state.id" data-placeholder="Select State">
+                                                    <option value="{{item.id}}" ng-repeat="item in State">{{item.state}}</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <input type="text"ng-model="ContactDetails.address.zipcode"  class="form-control" placeholder="{{'ControlText.Zip'|translate}}">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 form-group  clearfix">
+                                            <label class="col-md-2 control-label">{{"ControlText.ReportingManager"|translate}} </label>
+                                            <div class="col-md-3">                                            
+                                                <select class="input-sm select2me" ng-model="ProfessionalDetails.reportingManager.id" data-placeholder="Select Reporting Manager">
+                                                    <option value="{{item.id}}" ng-selected="item.id===ProfessionalDetails.reportingManager.id" ng-repeat="item in Reportingmanagers">{{item.name}}  </option>
+                                                </select>
+                                            </div>
+                                            <label class="col-md-2 col-md-offset-2 control-label">{{"ControlText.Branch/Office"|translate}} </label>
+                                            <div class="col-md-3">                                               
+                                                <select class="input-sm select2me" ng-model="ProfessionalDetails.branch.id" data-placeholder="Select Branch/Office">
+                                                    <option value="{{item.id}}" ng-selected="item.id===ProfessionalDetails.branch.id" ng-repeat="item in Branch">{{item.name}} </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 form-group  clearfix">
+                                            <label class="col-md-2 control-label">{{"ControlText.Role"|translate}} </label>
+                                            <div class="col-md-3">                                         
+                                                <select class="input-sm select2me" ng-model="ProfessionalDetails.roles[0].roleId" data-placeholder='Select Role'>
+                                                    <option value="{{item.roleId}}" ng-selected="item.roleId===ProfessionalDetails.roles[0].roleId" ng-repeat="item in Roles">{{item.roleName}}</option>
+                                                </select>
+                                            </div>
+                                            <label class="col-md-2 col-md-offset-2 control-label">{{"ControlText.Designation"|translate}} </label>
+                                            <div class="col-md-3">                                             
+                                                <select class="input-sm select2me" ng-model="ProfessionalDetails.designation.id" data-placeholder="Select Designation">
+                                                    <option value="{{item.id}}" ng-selected="item.id===ProfessionalDetails.designation.id" ng-repeat="item in Designations">{{item.name}} </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-12">
+            <div class="portlet light ">
+                <div class="portlet-title">
+                    <div class="caption font-green-sharp">
+                        <i class="icon-settings font-green-sharp"></i>
+                        <span class="caption-subject bold uppercase">{{"TabHeaderText.CategorySpecialities" | translate}}</span>
+                    </div>
+
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="portlet light bordered">
+                                <div class="portlet-body">
+                                    <div class="row">
+                                        <!--top buttons-->
+                                        <div class="portlet">
+                                            <div class="portlet-title">
+                                                <!--Keep this empty just took for horizontal line-->
+                                                <div class="form-group col-md-12">
+                                                    <label class="control-label  text-primary ">{{"ControlText.Name" | translate}} : &nbsp; {{ContactDetails.firstName }}&nbsp;{{ContactDetails.lastName}}</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Start Table Data-->
+                                        <div class="col-md-12 padding-top-10px table-responsive">
+                                            <div class="clearfix"> </div>
+                                            <div class="col-md-4 col-md-offset-2">
+                                                <div class="input-icon left">
+                                                    <i class="icon-magnifier"></i>
+                                                    <input type="text" ng-model="searchCategory" class="form-control form-control-solid input-circle input-block-level btnMargin margin-bottom-10" placeholder="{{'CategorySpecialistsTable.search' | translate}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-offset-2 col-md-8  table-responsive">
+                                                <table class="table table-bordered  table-striped">
+                                                    <tr>
+                                                        <td class="width45">
+                                                            <div class="col-md-12 table-responsive" style="height:200px;">
+                                                                <table class="table table-bordered table-hover table-striped">
+                                                                    <tr ng-repeat="category in CategoryList|filter:searchCategory">
+                                                                        <td>
+                                                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" ng-click="">
+                                                                                <input type="checkbox" class="checkboxes" ng-click="AddCategoryToExpert(category)" ng-checked="GetIsChecked(AddSpecialtyList,category)" />
+                                                                                <span></span>
+                                                                            </label>
+                                                                        </td>
+                                                                        <td>{{category.categoryName}}</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+                                                        <td rowspan="5" class="text-center">
+                                                            <a href="#" style="text-decoration:none;" ng-click="AddToExpertCategory()"><h1 class="text-muted">&gt;</h1></a>
+                                                            <a href="#" style="text-decoration:none;" ng-click="RemoveFromExpertCategory()">  <h1 class="text-muted">&lt;</h1></a>
+                                                        </td>
+                                                        <td class="width45">
+                                                            <div class="col-md-12 table-responsive" style="height:200px;">
+                                                                <table class="table table-bordered table-hover table-striped">
+                                                                    <tr ng-repeat="specialty in  SpecialtyOfSpecialist">
+                                                                        <td>
+                                                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                                                <input type="checkbox" class="checkboxes" ng-click="RemoveExpertCategory(specialty)" ng-checked="GetIsChecked(RemoveSpecialtyList,specialty)" />
+                                                                                <span></span>
+                                                                            </label>
+                                                                        </td>
+                                                                        <td>{{specialty.speciality}}</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!--End Table data-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-green-sharp">
+                        <i class="icon-settings font-green-sharp"></i>
+                        <span class="caption-subject bold uppercase">{{"ControlText.AssignedClaims" | translate}}</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="portlet light bordered">
+                                <div class="portlet-body">
+                                    <div class="row">
+                                        <!--top buttons-->
+                                        <div class="portlet">
+                                            <div class="portlet-title">
+                                                <!--Keep this empty just took for horizontal line-->
+                                                <div class="form-group col-md-12">
+                                                    <label class="control-label col-md-1 text-primary ">{{"ControlText.Show" | translate}}</label>
+                                                    <div class="col-md-3">
+                                                        <select class="input-sm select2me" ng-model="PageLength">
+                                                            <option value="10">10 Claims</option>
+                                                            <option value="15">15 Claims</option>
+                                                            <option value="20">20 Claims</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-md-4">
+                                                        <div class="input-icon left">
+                                                            <i class="icon-magnifier"></i>
+                                                            <input type="text" ng-model="search" class="form-control form-control-solid input-circle input-block-level btnMargin" placeholder="{{'ControlText.SearchClaim' | translate}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Start Table Data-->
+                                        <div class="col-md-12 padding-top-10px table-responsive">
+                                            <div class="clearfix"> </div>
+                                            <table class="table table-striped table-bordered table-hover table-checkable order-column">
+                                                <thead>
+                                                    <tr>
+                                                        <td><label class="mt-checkbox mt-checkbox-single mt-checkbox-outline"> <input type="checkbox"> <span></span></label></td>
+                                                        <td ng-click="sort('Type')">
+                                                            {{"Table.Type" | translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="sortKey=='Type'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                        </td>
+                                                        <td ng-click="sort('claimNumber')">
+                                                            {{"Table.Claim#" | translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="sortKey=='claimNumber'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                        </td>
+                                                        <td ng-click="sort('policyNumber')" >
+                                                            {{"Table.Policy#" | translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="sortKey=='policyNumber'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                        </td>
+                                                        <td ng-click="sort('HeadLine')" class="width35">
+                                                            {{"Table.HeadLine" | translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="sortKey=='HeadLine'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                        </td>
+                                                        <td ng-click="sort('DateOfClaim')" class="">
+                                                            {{"Table.DateOfClaim" | translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="sortKey=='DateOfClaim'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                        </td>
+                                                        <td ng-click="sort('Status')" class="">
+                                                            {{"Table.Status" | translate}}
+                                                            <span class="glyphicon sort-icon" ng-show="sortKey=='Status'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr dir-paginate="item in Claimlist|orderBy:sortKey:reverse|filter:search|itemsPerPage:PageLength" pagination-id="Claimlist">
+                                                        <td><label class="mt-checkbox mt-checkbox-single mt-checkbox-outline"> <input type="checkbox"> <span></span></label></td>
+                                                        <td ><span ng-class="{'HOME':'fa fa-home fa-lg', 'AUTO':'fa fa-bus fa-lg'}[item.claimType]"></span></td>
+                                                        <td><a>{{item.claimNumber}}</a></td>
+                                                        <td><a>{{item.policyNumber}}</a></td>
+                                                        <td><textarea ng-model="item.lastNote.message" class="form-control"></textarea> </td>
+                                                        <td>{{item.createDate | date:'MMM-dd-yyyy'}}</td>                                                      
+                                                        <td><a class="btn btn-circle  btn-xs green">{{item.status.status}}</a></td>
+                                                    </tr>
+                                                    <tr ng-if="(Claimlist===null)||(Claimlist.length ===0)">
+                                                        <td></td>
+                                                        <td colspan="6" class="text-center text-danger">No records avaliable</td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                </tfoot>
+                                            </table>
+                                            <dir-pagination-controls max-size="3" pagination-id="Claimlist" ng-if="Claimlist!==null"
+                                                                     direction-links="true"
+                                                                     boundary-links="true" class="pull-right">
+                                            </dir-pagination-controls>
+                                        </div>
+                                        <!--End Table data-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        
+
+    </div>
+</div>

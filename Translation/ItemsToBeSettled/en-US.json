@@ -1,0 +1,46 @@
+﻿{
+  "labeltext": {
+    "ItemId": "Item Id",
+    "ItemName": "Item Name",
+    "ScheduledItem": "ScheduledItem",
+    "PriceQuoted": "Price",
+    "RCV": "RCV",
+    "Category": "Category",
+    "SubCategory": "SubCategory",
+    "Status": "Status",
+    "ACV": "ACV",
+    "Age": "Age",
+    "FinalValue": "Final Value",
+    "ItemsSettled": "Items To Be Settled",
+    "TotalValue": "Total Value",
+    "ItemsSelected ": "Items Selected",
+    "Show": "Show",
+    "View": "View",
+    "Search": "Search Item#, Item Name",
+    "Claim#": "Claim #"
+  },
+
+  "BtnTexts": {
+    "Back": "Back",
+    "Cancel": "Cancel"
+  },
+  "NoRecordText": "No records to show",
+  "FormControlText": {
+    "DirectDeposit": "Direct Deposit",
+    "DebitCardNumber": "Debit Card Number",
+    "CheckNumber": "Check Number",
+    "AmountOnCheck": "Amount On Check",
+    "PartialReplacement": "Partial Replacement",
+    "Amount": "Amount",
+    "ConsumerAccount": "Consumer Account#",
+    "NameOfBank": "Name Of The Bank",
+    "RoutingNumber": "Routing Number",
+    "PaymentDate": "Payment Date",
+    "DrawnOnBank": "Drawn On Bank"
+  },
+  "Radio": {
+    "DirectDeposit": "Direct Deposit",
+    "DebitCard": "Debit Card",
+    "Check": "Check"
+  }
+}

@@ -1,0 +1,258 @@
+﻿
+<!-- Begin Contact Tab -->
+<div class="col-md-12">
+    <div class="col-md-12 portlet light bordered">
+        <!--Contact List-->
+        <div id="ContactList" ng-if="displaycontactlist">
+            <!--top buttons-->
+            <div class="col-md-12 clearfix">             
+                   
+                        <button id="btnNewContact" class="btn sbold green btnMargin" ng-click="NewContact($event)">
+                            <i class="fa fa-plus"></i>
+                            {{"ControlText.CreateNewContact_title"|translate}}
+                        </button>
+                 
+              
+                    <button id="btnUploadContact" class="btn sbold blue btnMargin" ng-click="UploadContact($event)">
+                        <i class="fa fa-upload"></i>
+                        {{"ControlText.UploadContacts_title"|translate}}
+                    </button>
+              
+                <div class="col-md-4 pull-right btnMargin">
+                    <div class="input-icon left ">
+                        <i class="icon-magnifier"></i>
+                        <input type="text" ng-model="search" class="form-control form-control-solid input-circle input-block-level ng-pristine ng-valid ng-empty ng-touched" placeholder="Search...">
+                    </div>
+                </div>
+            </div>
+            <!--end top buttons-->
+            <div class="col-md-12">
+                <div class="col-md-12 table-responsive">
+                    <table class="col-md-12 table margin-top-20 table-striped table-bordered table-hover table-checkable order-column">
+                        <thead>
+                            <tr>
+                                <td ng-click="sort('Name')">
+                                    {{"Table.Name"|translate}}
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='Name'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                </td>
+                                <td ng-click="sort('Designation')">
+                                    {{"Table.Designation"|translate}}
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='Designation'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                </td>
+                                <td ng-click="sort('BranchOffice')">
+                                    {{"Table.BranchOffice"|translate}}
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='BranchOffice'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                </td>
+                                <td ng-click="sort('EmailId')">
+                                    {{"Table.EmailId"|translate}}
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='EmailId'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                </td>
+                                <td ng-click="sort('PhoneNo')">
+                                    {{"Table.PhoneNo"|translate}}
+                                    <span class="glyphicon sort-icon" ng-show="sortKey=='PhoneNo'" ng-class="{'glyphicon-chevron-up pull-right':reverse,'glyphicon-chevron-down pull-right':!reverse}"></span>
+                                </td>
+                              
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr dir-paginate="contact in Contacts|filter:search|itemsPerPage:5">
+                                <td>{{contact.Name}}</td>
+                                <td>{{contact.Designation}}</td>
+                                <td>{{contact.Branch}}</td>
+                                <td>{{contact.EmailId}}</td>
+                                <td>{{contact.PhoneNo}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <dir-pagination-controls max-size="3"
+                                             direction-links="true"
+                                             boundary-links="true" class="pull-right">
+                    </dir-pagination-controls>
+                </div>
+            </div>
+        </div>
+        <!--End Contact List-->
+        <!--New Contacts-->
+        <div class="col-md-12" ng-if="displaynewcontacts">
+            <div class="portlet ">
+                <div class="portlet-title">
+                    <h4 class="text-primary"><b>{{"HeaderText.NewContact_title" |translate}}</b> </h4>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+
+                        <!--First Row-->
+                        <div class="form-group col-md-6">
+                            <div class="col-md-4">
+                                <label>{{"FormControlText.FirstName"|translate}}</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder='{{"FormControlText.FirstName"|translate}}' />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="col-md-4">
+                                <label>{{"FormControlText.LastName"|translate}}</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder='{{"FormControlText.LastName"|translate}}' />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="col-md-4">
+                                <label>{{"FormControlText.Email"|translate}}</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder='{{"FormControlText.Email"|translate}}' />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="col-md-4">
+                                <label>{{"FormControlText.PhoneNumber"|translate}}</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder='{{"FormControlText.PhoneNumber"|translate}}' />
+                            </div>
+                        </div>
+                        <!---End First Row--->
+                        
+                    
+                         <div class="col-md-12">
+                             <div class="portlet">
+                                 <div class="portlet-title"></div>
+                             </div>
+                         </div>
+                        <!--second Row-->
+                        <div class="form-group col-md-6">
+                            <div class="col-md-4">
+                                <label>{{"FormControlText.Designation"|translate}}</label>
+                            </div>
+                            <div class="col-md-8">
+                                <select class="form-control input-block-level select2me" data-placeholder="Select..">
+                                    <option value=""></option>
+                                    <option value="AL">Test</option>
+                                    <option value="WY">Test</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="col-md-4">
+                                <label>{{"FormControlText.ReportingManager"|translate}}</label>
+                            </div>
+                            <div class="col-md-8">
+                                <select class="form-control input-block-level select2me" data-placeholder="Select..">
+                                    <option value=""></option>
+                                    <option value="AL">Test</option>
+                                    <option value="WY">Test</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-offset-6 col-md-6">
+                            <div class="col-md-4">
+                                <label>{{"FormControlText.BranchOffice"|translate}}</label>
+                            </div>
+                            <div class="col-md-8">
+                                <select class="form-control input-block-level select2me" data-placeholder="Select..">
+                                    <option value=""></option>
+                                    <option value="AL">Test</option>
+                                    <option value="WY">Test</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="col-md-4">
+                                <label>{{"FormControlText.Role"|translate}}</label>
+                            </div>
+                            <div class="col-md-6">
+                                <!--<select class="form-control  select2me" data-placeholder="Select..">
+                                    <option value=""></option>
+                                    <option value="AL">Test</option>
+                                    <option value="WY">Test</option>
+                                </select>-->
+                            </div>
+                            <div class="col-md-2">
+                                <!--<button id="btnBack" class="btn form-control sbold green btn-block" ng-click="openRoleModel()">
+                                    <i class="fa fa-plus"></i>
+                                    {{"ControlText.AddRole_title"|translate}}
+                                </button>-->
+                                <span id="btnNext" class="btn btn-circle blue pull-right" ng-click="openRoleModel()">
+
+                                    <i class="fa fa-plus"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <!--End Second Row-->
+
+                    </div>
+
+                    <div class="col-md-12 portlet">
+                        <div class="portlet-title">
+                        </div>
+                    </div>
+                        <div class="col-md-12 clearfix">
+                            <div class="form-group col-md-8 pull-left text-left">
+                                <h5 class="text-danger">{{"NewContactNote_title"|translate}}</h5>
+                            </div>
+                           
+                                <div class="form-group col-md-2 pull-right">
+                                    <button id="btnCreate" class="btn sbold blue form-control" ng-click="NewContactPopup()">
+                                        <i class="fa fa-plus"></i>
+                                        {{"ControlText.Create_title"|translate}}
+                                    </button>
+                                </div>
+                                <div class="form-group col-md-2 pull-right">
+                                    <button id="btnBack" class="btn sbold green form-control" ng-click="NewContactBack($event)">
+                                        <i class="fa fa-arrow-left"></i>
+                                        {{"ControlText.Back_title"|translate}}
+                                    </button>
+                                </div>
+                           
+                        </div>
+                    
+                </div><!--end portlet body-->
+            </div><!--end portlet-->
+        </div>
+        <!--End New Contacts-->
+        <!--Upload Contacts-->
+        <div class="col-md-12" ng-if="displayuploadcontacts">
+            <div class="portlet">
+                <div class="portlet-title">
+                    <h4 class="text-primary"><b>{{"HeaderText.UploadContact_title" |translate}}</b> </h4>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-6 portlet light bordered">
+                            <div class="form-group">
+                                <div class="col-md-12 text-center">
+                                    <h4 class="text-primary">{{"HeaderText.UploadContactNote"|translate}}</h4>
+                                </div>
+                                <div class="col-md-offset-3 col-md-6 margin-top-20">
+                                    <div class="col-md-12">
+                                        <input type="file" placeholder="select File" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12 margin-top-20">
+                                    <div class="form-group col-md-6">
+                                        <button id="btnBack" class="btn sbold green form-control" ng-click="UploadBack($event)">
+                                            <i class="fa fa-arrow-left"></i>
+                                            {{"ControlText.Back_title"|translate}}
+                                        </button>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <button id="btnUpload" class="btn sbold blue form-control" ng-click="UploadContactPopup()">
+                                            <i class="fa fa-upload"></i>
+                                            {{"ControlText.UploadContact_title"|translate}}
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Upload Contacts-->
+    </div>
+</div>
+<!--End Contact Tab-->
